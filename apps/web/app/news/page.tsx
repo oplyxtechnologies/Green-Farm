@@ -11,22 +11,29 @@ import type { News } from "@green-farm/db/types";
 import { ArrowRight, Calendar, User } from "lucide-react";
 import { MagneticButton } from "../../components/MagneticButton";
 import { PEXELS_ASSETS } from "../../lib/pexels";
+import {
+  RevealText,
+  FadeDriftText,
+  StaggeredLineReveal,
+  ClipWipeImage,
+  CurtainReveal,
+} from "../../components/animations";
 
 export const metadata: Metadata = {
-  title: "Field Notes & Agricultural Dispatches | Green Nepal Krishi Farm",
+  title: "Field Notes & Agricultural Dispatches | Green Nepal Agricultural Farm",
   description:
-    "First-hand chronicles of soil science, polyhouse engineering, seasonal harvest reports, and agronomic stewardship from Green Nepal Krishi Farm.",
+    "First-hand chronicles of soil science, polyhouse engineering, seasonal harvest reports, and agronomic stewardship from Green Nepal Agricultural Farm.",
 };
 
 const fallbackNews: News[] = [
   {
     id: "1",
-    title: "Chitwan Solar Drip Expansion: Preserving 40 Hectares of Alluvial Aquifer",
+    title: "Surkhet Solar Drip Expansion: Preserving 40 Hectares of Valley Aquifer",
     slug: "expands-sustainable-drip-irrigation",
     excerpt:
-      "Our agronomy team has completed commissioning on a 40-hectare automated solar drip network in Chitwan, reducing water intake by 45% while delivering root-targeted bio-tea nutrients.",
+      "Our agronomy team has completed commissioning on a 40-hectare automated solar drip network in Birendranagar, Surkhet, reducing water intake by 45% while delivering root-targeted bio-tea nutrients.",
     content:
-      "Water stewardship in the Terai plains demands more than flood irrigation. During our late autumn installations, we paired high-efficiency photovoltaic pumping with pressure-compensating inline emitters. By matching water delivery curves directly to sap-flow transpiration rates, we safeguard vital groundwater tables while ensuring stable vegetative growth through dry winter intervals.",
+      "Water stewardship in the Surkhet Valley demands more than flood irrigation. During our late autumn installations, we paired high-efficiency photovoltaic pumping with pressure-compensating inline emitters. By matching water delivery curves directly to sap-flow transpiration rates, we safeguard vital groundwater tables while ensuring stable vegetative growth through dry winter intervals.",
     cover_image: PEXELS_ASSETS.terroir.solarDrip.url,
     author: "Rohan Adhikari · Chief Agronomist",
     published_at: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
@@ -37,7 +44,7 @@ const fallbackNews: News[] = [
     title: "The Soil Microbiology Protocol: Closed-Loop Vermicast & Bio-Char Trials",
     slug: "soil-microbiology-protocol-vermicast",
     excerpt:
-      "How our 120-day compost maturation bays in Bharatpur transform crop residuals into living bio-fertilizer, eliminating all chemical nitrogen inputs.",
+      "How our 120-day compost maturation bays in Birendranagar transform crop residuals into living bio-fertilizer, eliminating all chemical nitrogen inputs.",
     content:
       "Healthy food begins with living soil biology. In this dispatch, our soil fertility team documents the microbial diversity counts across our earthworm vermiculture beds. By blending rice straw, mustard cake, cow dung, and wood bio-char, we produce a stable humus with 4.2% organic matter content, naturally suppressing soil-borne fungal pathogens.",
     cover_image: PEXELS_ASSETS.terroir.soilCompost.url,
@@ -87,17 +94,21 @@ export default async function NewsPage() {
       <section className="pt-28 pb-20 sm:pt-32 sm:pb-24 border-b border-slate-200 bg-slate-50/70">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <span className="text-xs font-semibold uppercase tracking-wider text-krishi-brand block mb-3">
+            <FadeDriftText as="span" className="text-xs font-semibold uppercase tracking-wider text-krishi-brand block mb-3">
               Agronomic Chronicles · Dispatch Ledger
-            </span>
-            <h1 className="font-heading text-4xl sm:text-6xl text-slate-900 font-bold leading-display tracking-tight">
-              Field Notes &amp; Harvest Chronicles
-            </h1>
-            <p className="mt-6 text-base sm:text-lg text-slate-700 font-sans leading-relaxed">
-              Technical field observations, seasonal milestone records, and agronomic
-              experiments published directly by the farm managers and soil researchers of
-              Green Nepal Krishi Farm.
-            </p>
+            </FadeDriftText>
+            <RevealText
+              as="h1"
+              className="font-heading text-4xl sm:text-6xl text-slate-900 font-bold leading-display tracking-tight"
+            >
+              Field Journal &amp; Agronomy Insights
+            </RevealText>
+            <StaggeredLineReveal
+              className="mt-6 text-base sm:text-lg text-slate-700 font-sans leading-relaxed"
+              stagger={0.02}
+            >
+              Technical field observations, seasonal milestone records, and agronomic experiments published directly by the farm managers and soil researchers of Green Nepal Agricultural Farm.
+            </StaggeredLineReveal>
           </div>
         </div>
       </section>
@@ -107,10 +118,10 @@ export default async function NewsPage() {
         <section className="py-16 sm:py-20 border-b border-slate-200 bg-background">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-              {/* Feature Image */}
+              {/* Feature Image with ClipWipeImage */}
               <div className="lg:col-span-7">
                 <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-crisp-sm">
-                  <Image
+                  <ClipWipeImage
                     src={
                       featuredStory.cover_image ||
                       PEXELS_ASSETS.terroir.solarDrip.url
@@ -119,7 +130,11 @@ export default async function NewsPage() {
                     fill
                     priority
                     sizes="(max-width: 1024px) 100vw, 60vw"
-                    className="object-cover"
+                    direction="right"
+                    scaleImage
+                    triggerStart="top 85%"
+                    className="h-full w-full"
+                    imageClassName="object-cover"
                   />
                   <div className="absolute top-4 left-4 z-10">
                     <span className="rounded-full bg-slate-900/90 backdrop-blur-md px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-krishi-cream">
@@ -131,7 +146,7 @@ export default async function NewsPage() {
 
               {/* Feature Content */}
               <div className="lg:col-span-5 space-y-6">
-                <div className="flex items-center gap-3 text-xs text-slate-500">
+                <FadeDriftText className="flex items-center gap-3 text-xs text-slate-500">
                   <span className="flex items-center gap-1">
                     <Calendar className="h-3.5 w-3.5 text-krishi-brand" />
                     {featuredStory.published_at
@@ -146,21 +161,29 @@ export default async function NewsPage() {
                     <User className="h-3.5 w-3.5 text-krishi-brand" />
                     {featuredStory.author || "Agronomy Desk"}
                   </span>
-                </div>
+                </FadeDriftText>
 
-                <h2 className="font-heading text-3xl sm:text-4xl text-slate-900 font-bold leading-tight">
+                <RevealText
+                  as="h2"
+                  className="font-heading text-3xl sm:text-4xl text-slate-900 font-bold leading-tight"
+                  triggerStart="top 85%"
+                >
                   {featuredStory.title}
-                </h2>
+                </RevealText>
 
-                <p className="text-sm sm:text-base text-slate-600 font-sans leading-relaxed">
-                  {featuredStory.content || featuredStory.excerpt}
-                </p>
+                <StaggeredLineReveal
+                  className="text-sm sm:text-base text-slate-600 font-sans leading-relaxed"
+                  stagger={0.018}
+                  triggerStart="top 85%"
+                >
+                  {featuredStory.content || featuredStory.excerpt || ""}
+                </StaggeredLineReveal>
 
-                <div className="pt-2">
+                <FadeDriftText delay={0.1} className="pt-2">
                   <span className="text-xs font-semibold uppercase tracking-wider text-krishi-brand block">
-                    Verified Field Observation · Field Station Chitwan
+                    Verified Field Observation · Field Station Surkhet
                   </span>
-                </div>
+                </FadeDriftText>
               </div>
             </div>
           </div>
@@ -171,12 +194,16 @@ export default async function NewsPage() {
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-14 pb-6 border-b border-slate-200">
-            <span className="text-xs font-semibold uppercase tracking-wider text-krishi-brand block mb-1">
+            <FadeDriftText as="span" className="text-xs font-semibold uppercase tracking-wider text-krishi-brand block mb-1">
               Field Chronicle Archive
-            </span>
-            <h3 className="font-heading text-2xl sm:text-3xl text-slate-900 font-bold">
+            </FadeDriftText>
+            <RevealText
+              as="h3"
+              className="font-heading text-2xl sm:text-3xl text-slate-900 font-bold"
+              triggerStart="top 88%"
+            >
               Agronomic Observations &amp; Engineering Reports
-            </h3>
+            </RevealText>
           </div>
 
           <div className="space-y-20">
@@ -195,17 +222,23 @@ export default async function NewsPage() {
                   key={story.id}
                   className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center border-b border-slate-200 pb-16 last:border-b-0"
                 >
-                  {/* Image Column */}
+                  {/* Image Column with CurtainReveal */}
                   <div
                     className={`relative ${
                       isEven ? "lg:col-span-6 lg:order-2" : "lg:col-span-6"
                     }`}
                   >
-                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-crisp-sm">
+                    <CurtainReveal
+                      curtainColor="brand"
+                      direction={isEven ? "left" : "right"}
+                      duration={1.1}
+                      triggerStart="top 85%"
+                      className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-slate-200 bg-slate-100 shadow-crisp-sm"
+                    >
                       <Image
                         src={
                           story.cover_image ||
-                          PEXELS_ASSETS.terroir.chitwanFarmland.url
+                          PEXELS_ASSETS.terroir.surkhetFarmland.url
                         }
                         alt={story.title}
                         fill
@@ -217,7 +250,7 @@ export default async function NewsPage() {
                           Chronicle № {idx + 2}
                         </span>
                       </div>
-                    </div>
+                    </CurtainReveal>
                   </div>
 
                   {/* Text Column */}
@@ -226,7 +259,7 @@ export default async function NewsPage() {
                       isEven ? "lg:col-span-6 lg:order-1" : "lg:col-span-6"
                     }`}
                   >
-                    <div className="flex items-center gap-3 text-xs text-slate-500">
+                    <FadeDriftText className="flex items-center gap-3 text-xs text-slate-500">
                       <span className="flex items-center gap-1">
                         <Calendar className="h-3.5 w-3.5 text-krishi-brand" />
                         {dateFormatted}
@@ -236,17 +269,21 @@ export default async function NewsPage() {
                         <User className="h-3.5 w-3.5 text-krishi-brand" />
                         {story.author || "Field Researcher"}
                       </span>
-                    </div>
+                    </FadeDriftText>
 
-                    <h4 className="font-heading text-2xl sm:text-3xl text-slate-900 font-bold leading-snug">
+                    <RevealText
+                      as="h4"
+                      className="font-heading text-2xl sm:text-3xl text-slate-900 font-bold leading-snug"
+                      triggerStart="top 85%"
+                    >
                       {story.title}
-                    </h4>
+                    </RevealText>
 
                     <p className="text-sm text-slate-600 font-sans leading-relaxed">
                       {story.excerpt || story.content}
                     </p>
 
-                    <div className="pt-2">
+                    <FadeDriftText delay={0.1} className="pt-2">
                       <Link
                         href="/contact?subject=Press / Agronomy Inquiry"
                         className="inline-flex items-center gap-2 font-sans text-xs font-semibold text-krishi-brand hover:text-krishi-forest border-b border-krishi-brand pb-0.5"
@@ -254,7 +291,7 @@ export default async function NewsPage() {
                         Inquire regarding this research
                         <ArrowRight className="h-3.5 w-3.5 text-krishi-brand" />
                       </Link>
-                    </div>
+                    </FadeDriftText>
                   </div>
                 </article>
               );
@@ -265,7 +302,7 @@ export default async function NewsPage() {
 
       {/* 4. Subscription */}
       <section className="py-16 border-t border-slate-200 bg-slate-50">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-4">
+        <FadeDriftText className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <span className="text-xs font-semibold uppercase tracking-wider text-krishi-brand block">
             Agricultural Research Registry
           </span>
@@ -287,7 +324,7 @@ export default async function NewsPage() {
               </Link>
             </MagneticButton>
           </div>
-        </div>
+        </FadeDriftText>
       </section>
     </div>
   );

@@ -6,9 +6,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { RevealText, FadeDriftText } from "../../components/animations";
 
 export const metadata: Metadata = {
-  title: "Commercial Terms & Conditions | Green Nepal Krishi Farm",
+  title: "Commercial Terms & Conditions | Green Nepal Agricultural Farm",
   description: "Terms and conditions governing agricultural supply agreements and platform usage.",
 };
 
@@ -24,27 +25,34 @@ export default function TermsAndConditionsPage() {
           Return to Farm Overview
         </Link>
 
-        <span className="text-xs font-semibold uppercase tracking-wider text-krishi-brand block mb-2">
+        <FadeDriftText as="span" className="text-xs font-semibold uppercase tracking-wider text-krishi-brand block mb-2">
           Commercial Governance
-        </span>
-        <h1 className="font-heading text-3xl sm:text-5xl text-slate-900 font-bold leading-tight">
+        </FadeDriftText>
+        <RevealText
+          as="h1"
+          className="font-heading text-3xl sm:text-5xl text-slate-900 font-bold leading-tight"
+        >
           Commercial Terms &amp; Conditions
-        </h1>
-        <p className="text-xs text-slate-500 mt-2">
+        </RevealText>
+        <FadeDriftText as="p" delay={0.1} className="text-xs text-slate-500 mt-2">
           Agricultural Supply Framework · Kingdom / Republic of Nepal
-        </p>
+        </FadeDriftText>
 
         <div className="mt-10 space-y-8 rounded-2xl border border-slate-200 bg-white p-8 sm:p-12 text-sm text-slate-600 font-sans leading-relaxed shadow-crisp-sm">
           <section className="space-y-2">
-            <h2 className="font-heading text-xl font-bold text-slate-900">1. Acceptance of Terms</h2>
+            <FadeDriftText as="h2" triggerStart="top 92%" className="font-heading text-xl font-bold text-slate-900">
+              1. Acceptance of Terms
+            </FadeDriftText>
             <p>
-              By accessing this digital platform or engaging in commercial trade with Green Nepal Krishi Farm,
+              By accessing this digital platform or engaging in commercial trade with Green Nepal Agricultural Farm,
               commercial partners acknowledge and consent to the operational provisions outlined herein.
             </p>
           </section>
 
           <section className="space-y-2 pt-6 border-t border-slate-200">
-            <h2 className="font-heading text-xl font-bold text-slate-900">2. Agricultural Product Characterization</h2>
+            <FadeDriftText as="h2" triggerStart="top 92%" className="font-heading text-xl font-bold text-slate-900">
+              2. Agricultural Product Characterization
+            </FadeDriftText>
             <p>
               Produce weights, cultivar characteristics, and pricing figures cataloged on this site reflect seasonal
               harvest benchmarks. Commercial commitments for guaranteed tonnage and fixed pricing are executed
@@ -53,7 +61,9 @@ export default function TermsAndConditionsPage() {
           </section>
 
           <section className="space-y-2 pt-6 border-t border-slate-200">
-            <h2 className="font-heading text-xl font-bold text-slate-900">3. Harvest Dispatch &amp; Perishable Acceptance</h2>
+            <FadeDriftText as="h2" triggerStart="top 92%" className="font-heading text-xl font-bold text-slate-900">
+              3. Harvest Dispatch &amp; Perishable Acceptance
+            </FadeDriftText>
             <p>
               Harvested crops are dispatched via temperature-managed transport during morning hours (04:00 AM – 12:00 PM).
               Receiving quality inspections must occur upon arrival at designated receiving docks. Any variances
@@ -62,16 +72,20 @@ export default function TermsAndConditionsPage() {
           </section>
 
           <section className="space-y-2 pt-6 border-t border-slate-200">
-            <h2 className="font-heading text-xl font-bold text-slate-900">4. Intellectual Property &amp; Agronomic Research</h2>
+            <FadeDriftText as="h2" triggerStart="top 92%" className="font-heading text-xl font-bold text-slate-900">
+              4. Intellectual Property &amp; Agronomic Research
+            </FadeDriftText>
             <p>
               All editorial narratives, soil microbiological logs, photography, and brand identifiers remain the exclusive
-              intellectual property of Green Nepal Krishi Farm. Unauthorized reproduction for commercial misrepresentation
+              intellectual property of Green Nepal Agricultural Farm. Unauthorized reproduction for commercial misrepresentation
               is strictly prohibited.
             </p>
           </section>
 
           <section className="space-y-2 pt-6 border-t border-slate-200">
-            <h2 className="font-heading text-xl font-bold text-slate-900">5. Applicable Jurisdiction</h2>
+            <FadeDriftText as="h2" triggerStart="top 92%" className="font-heading text-xl font-bold text-slate-900">
+              5. Applicable Jurisdiction
+            </FadeDriftText>
             <p>
               All commercial agreements and electronic communications are governed by and adjudicated under the commercial
               and civil laws of Nepal.

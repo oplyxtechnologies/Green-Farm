@@ -101,17 +101,17 @@ export function VideoHero() {
       {/* Primary Narrative Container */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 py-28 sm:px-6 lg:px-8 w-full">
         <div className="max-w-3xl space-y-6">
-          {/* Badge */}
+          {/* Eyebrow / Overline Badge */}
           <div
             ref={tagRef}
-            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-krishi-mint bg-slate-900/90 border border-slate-800 px-3.5 py-1.5 rounded-full backdrop-blur-sm shadow-sm"
+            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-krishi-cream -mb-2.5"
           >
-            <Compass className="h-3.5 w-3.5 text-krishi-sun" />
-            <span>Chitwan Terai &amp; Kathmandu Valley · Est. Commercial Farm</span>
+            <Compass className="h-3.5 w-3.5 text-krishi-cream" />
+            <span>Surkhet &amp; Kathmandu Valley · Est. Commercial Farm</span>
           </div>
 
           {/* Crisp Heading */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-heading font-bold text-krishi-cream leading-display tracking-tight">
+          <h1 className="text-4xl  sm:text-6xl md:text-7xl font-heading font-bold text-krishi-cream leading-display tracking-tight">
             <span ref={titleLine1Ref} className="block">
               Rooted in the living soil
             </span>
@@ -128,7 +128,7 @@ export function VideoHero() {
             ref={descRef}
             className="max-w-2xl text-base sm:text-lg text-slate-300 font-sans font-normal leading-relaxed"
           >
-            Green Nepal Krishi Farm pairs ecological soil regeneration with modern
+            Green Nepal Agricultural Farm pairs ecological soil regeneration with modern
             polyhouses and precision drip networks. We cultivate certified organic
             staples, highland fruits, and greens for wholesale distribution across Nepal.
           </p>

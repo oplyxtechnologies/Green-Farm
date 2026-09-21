@@ -1,10 +1,10 @@
-# Company Profile: Green Nepal Krishi Farm
+# Company Profile: Green Nepal Agricultural Farm
 
 ## 1. Company Overview
-**Name:** Green Nepal Krishi Farm  
+**Name:** Green Nepal Agricultural Farm  
 **Industry:** Commercial Agriculture / Farming  
 **Location:** Nepal  
-**Description:** Green Nepal Krishi Farm is a modern, commercial agricultural enterprise dedicated to sustainable farming practices, high-quality crop production, and empowering the local agricultural community. 
+**Description:** Green Nepal Agricultural Farm is a modern, commercial agricultural enterprise dedicated to sustainable farming practices, high-quality crop production, and empowering the local agricultural community. 
 
 ## 2. Mission & Vision
 *   **Mission:** To cultivate high-quality, sustainable, and fresh agricultural produce while implementing modern farming technologies to enhance food security and support local economies in Nepal.
@@ -27,7 +27,7 @@
 
 ## 5. Key Offerings (Website Focus)
 *   **Produce (Crops):** Detailed information about the seasonal and staple crops grown on the farm.
-*   **Careers/Work:** Opportunities to join the Green Nepal Krishi Farm team.
+*   **Careers/Work:** Opportunities to join the Green Nepal Agricultural Farm team.
 *   **News & Updates:** Insights into farming practices, harvest seasons, and company milestones.
 
 ## 6. Contact & Enquiries

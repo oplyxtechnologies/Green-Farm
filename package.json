@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "packageManager": "npm@11.19.0",
-  "description": "Monorepo for Green Nepal Krishi Farm commercial agriculture platform",
+  "description": "Monorepo for Green Nepal Agricultural Farm commercial agriculture platform",
   "workspaces": [
     "apps/*",
     "packages/*"

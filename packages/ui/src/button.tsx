@@ -22,20 +22,20 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variantStyles = {
       default:
-        "bg-farm-700 text-white hover:bg-farm-800 focus-visible:ring-farm-600 active:bg-farm-900 shadow-sm",
+        "bg-krishi-brand text-white hover:bg-krishi-forest focus-visible:ring-krishi-brand active:scale-[0.98] shadow-sm",
       forest:
-        "bg-forest text-white hover:bg-forest-medium focus-visible:ring-forest-light active:bg-forest-dark shadow-sm",
+        "bg-krishi-forest text-white hover:bg-krishi-forest/90 focus-visible:ring-krishi-forest active:scale-[0.98] shadow-sm",
       earth:
-        "bg-earth-800 text-white hover:bg-earth-900 focus-visible:ring-earth-700 shadow-sm",
+        "bg-slate-800 text-white hover:bg-slate-900 focus-visible:ring-slate-700 shadow-sm",
       harvest:
-        "bg-harvest-warm text-white hover:bg-harvest-amber focus-visible:ring-harvest-gold shadow-sm",
+        "bg-krishi-mint text-krishi-mint-text font-semibold hover:bg-krishi-mint/90 focus-visible:ring-krishi-mint shadow-sm",
       outline:
-        "border border-farm-200 bg-white text-forest hover:bg-farm-50 hover:border-farm-300 focus-visible:ring-farm-500",
+        "border border-slate-200 bg-white text-slate-900 hover:bg-slate-50 hover:border-slate-300 focus-visible:ring-krishi-brand",
       secondary:
-        "bg-farm-100 text-farm-900 hover:bg-farm-200 focus-visible:ring-farm-500",
+        "bg-slate-100 text-slate-900 hover:bg-slate-200 focus-visible:ring-slate-400",
       ghost:
-        "text-forest hover:bg-farm-50 hover:text-farm-900 focus-visible:ring-farm-500",
-      link: "text-farm-700 underline-offset-4 hover:underline focus-visible:ring-farm-500 p-0 h-auto",
+        "text-slate-700 hover:bg-slate-100 hover:text-slate-900 focus-visible:ring-slate-400",
+      link: "text-krishi-brand underline-offset-4 hover:underline focus-visible:ring-krishi-brand p-0 h-auto",
     };
 
     const sizeStyles = {

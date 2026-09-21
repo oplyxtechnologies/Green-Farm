@@ -11,11 +11,17 @@ import type { Produce } from "@green-farm/db/types";
 import { ArrowRight, Calendar, MapPin, Scale, Sparkles } from "lucide-react";
 import { MagneticButton } from "../../components/MagneticButton";
 import { PEXELS_ASSETS } from "../../lib/pexels";
+import {
+  RevealText,
+  FadeDriftText,
+  StaggeredLineReveal,
+  CurtainReveal,
+} from "../../components/animations";
 
 export const metadata: Metadata = {
-  title: "Seasonal Harvest Register & Produce Catalog | Green Nepal Krishi Farm",
+  title: "Seasonal Harvest Register & Produce Catalog | Green Nepal Agricultural Farm",
   description:
-    "Explore our botanical harvest catalog of sustainably cultivated crops, grains, and fruits from our Chitwan alluvial fields and high-altitude Himalayan orchards.",
+    "Explore our botanical harvest catalog of sustainably cultivated crops, grains, and fruits from our fertile Surkhet Valley fields and high-altitude Himalayan orchards.",
 };
 
 interface BotanicalDetails {
@@ -34,7 +40,7 @@ const botanicalLookup: Record<string, BotanicalDetails> = {
   },
   "fresh-mustard-greens": {
     botanicalName: "Brassica juncea (L.) Czern.",
-    terroirOrigin: "Chitwan alluvial silt beds · Dawn harvest protocol",
+    terroirOrigin: "Surkhet Valley fertile soils · Dawn harvest protocol",
     dispatchProtocol: "Hydro-cooled field hampers · Same-day transit to Kathmandu",
     minOrder: "30 bunch bundle",
   },
@@ -80,11 +86,11 @@ const fallbackProduce: Produce[] = [
   },
   {
     id: "2",
-    title: "Chitwan Mustard Greens (Tori ko Saag)",
+    title: "Surkhet Mustard Greens (Tori ko Saag)",
     slug: "fresh-mustard-greens",
-    category: "Terai Leafy Greens",
+    category: "Valley Leafy Greens",
     description:
-      "Hand-clipped before first sunrise in Chitwan’s alluvial silt basin. We feed the rootbeds solely with aged cow manure and vermicast, imparting a pungent peppery sweetness that defines traditional Nepalese winter cuisine.",
+      "Hand-clipped before first sunrise in Birendranagar’s fertile valley basin. We feed the rootbeds solely with aged cow manure and vermicast, imparting a pungent peppery sweetness that defines traditional Nepalese winter cuisine.",
     image_url: PEXELS_ASSETS.crops.mustardGreens.url,
     season: "Winter Peak",
     is_featured: true,
@@ -99,44 +105,44 @@ const fallbackProduce: Produce[] = [
     description:
       "Grown in deep river sediment fed by Himalayan runoff. Naturally sun-cured and traditionally aged to maximize kernel elongation, delicate aromatics, and rich nutritional integrity.",
     image_url: PEXELS_ASSETS.crops.basmatiRice.url,
-    season: "Post-Monsoon Harvest",
+    season: "Autumn Harvest",
     is_featured: false,
-    price_estimate: "NPR 140 / kg",
+    price_estimate: "NPR 220 / kg",
     created_at: new Date().toISOString(),
   },
   {
     id: "4",
     title: "Heirloom Greenhouse Tomatoes",
     slug: "heirloom-greenhouse-tomatoes",
-    category: "Polyhouse Solanaceae",
+    category: "Protected Vine",
     description:
-      "Nurtured within climate-tempered polyhouses in the Kathmandu Valley. Hand-pollinated, zero synthetic fungicides, and harvested daily at sunrise for peak restaurant firmness and high brix sweetness.",
+      "Multi-span polyhouse cultivated tomatoes with automated root-zone drip fertigation. Plump, deep-red, with balanced acidity engineered for premier culinary hospitality.",
     image_url: PEXELS_ASSETS.crops.tomatoes.url,
-    season: "Year-Round Regulated",
+    season: "Year-Round Harvest",
     is_featured: true,
     price_estimate: "NPR 95 / kg",
     created_at: new Date().toISOString(),
   },
   {
     id: "5",
-    title: "Highland Wildflower Raw Honey",
+    title: "Highland Forest Raw Honey",
     slug: "highland-raw-honey",
-    category: "Apiary Reserve",
+    category: "Forest Reserve",
     description:
-      "Cold-extracted from native Apis cerana hives foraging across sub-alpine rhododendron and mustard flora. Unpasteurized and unfiltered to preserve vital digestive enzymes and wildflower pollen.",
+      "Unheated and raw honey collected from native Apis cerana hives foraging wild mustard and high-altitude floral pastures. Distinct amber hue with herbal undertones.",
     image_url: PEXELS_ASSETS.crops.honey.url,
-    season: "Spring / Autumn Nectar",
+    season: "Spring / Late Autumn",
     is_featured: false,
-    price_estimate: "NPR 950 / 500g jar",
+    price_estimate: "NPR 950 / 500g",
     created_at: new Date().toISOString(),
   },
   {
     id: "6",
-    title: "Sweet Red Bell Peppers (Capsicum)",
+    title: "Crisp Sweet Bell Peppers",
     slug: "organic-red-bell-peppers",
-    category: "Protected Greenhouse",
+    category: "Protected Crop",
     description:
-      "Thick-walled, sweet bell peppers grown on elevated coco-peat beds with integrated biological pest management. Unblemished commercial grade ideal for premium supermarkets and hospitality.",
+      "Thick-walled, vibrant capsicums grown in bio-protected tunnel rows with zero pesticide sprays. Exceptional crunch and long shelf-life for commercial grocers.",
     image_url: PEXELS_ASSETS.crops.bellPeppers.url,
     season: "All-Season Harvest",
     is_featured: false,
@@ -171,27 +177,31 @@ export default async function ProducePage() {
       <section className="pt-28 pb-20 sm:pt-32 sm:pb-24 border-b border-slate-200 bg-slate-50/70">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <span className="text-xs font-semibold uppercase tracking-wider text-krishi-brand block mb-3">
+            <FadeDriftText as="span" className="text-xs font-semibold uppercase tracking-wider text-krishi-brand block mb-3">
               Agronomic Index · Botanical Ledger
-            </span>
-            <h1 className="font-heading text-4xl sm:text-6xl text-slate-900 font-bold leading-display tracking-tight">
+            </FadeDriftText>
+            <RevealText
+              as="h1"
+              className="font-heading text-4xl sm:text-6xl text-slate-900 font-bold leading-display tracking-tight"
+            >
               The Seasonal Harvest Register
-            </h1>
-            <p className="mt-6 text-base sm:text-lg text-slate-700 font-sans leading-relaxed">
-              Every crop documented here is cultivated across our own managed acreage
-              under certified organic standards. We balance heritage seed preservation
-              with sensor-monitored drip irrigation to produce dependable commercial tonnage.
-            </p>
+            </RevealText>
+            <StaggeredLineReveal
+              className="mt-6 text-base sm:text-lg text-slate-700 font-sans leading-relaxed"
+              stagger={0.02}
+            >
+              Every crop documented here is cultivated across our own managed acreage under certified organic standards. We balance heritage seed preservation with sensor-monitored drip irrigation to produce dependable commercial tonnage.
+            </StaggeredLineReveal>
           </div>
 
           {/* Terroir Ledger Bar */}
-          <div className="mt-12 pt-8 border-t border-slate-200 grid grid-cols-2 md:grid-cols-4 gap-6">
+          <FadeDriftText delay={0.15} className="mt-12 pt-8 border-t border-slate-200 grid grid-cols-2 md:grid-cols-4 gap-6">
             <div>
               <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 block">
                 Active Cultivation Zones
               </span>
               <p className="font-heading text-slate-900 font-bold text-base mt-1">
-                Chitwan &amp; Kathmandu Valleys
+                Surkhet &amp; Kathmandu Valleys
               </p>
             </div>
             <div>
@@ -218,7 +228,7 @@ export default async function ProducePage() {
                 Daily 04:00 AM – 12:00 PM
               </p>
             </div>
-          </div>
+          </FadeDriftText>
         </div>
       </section>
 
@@ -229,7 +239,7 @@ export default async function ProducePage() {
             const isEven = index % 2 === 1;
             const details = (item.slug && botanicalLookup[item.slug]) || {
               botanicalName: "Botanical cultivar verified",
-              terroirOrigin: "Green Nepal Krishi Farm managed acreage",
+              terroirOrigin: "Green Nepal Agricultural Farm managed acreage",
               dispatchProtocol: "Cold-chain ventilated dispatch",
               minOrder: "Commercial wholesale batch",
             };
@@ -239,13 +249,19 @@ export default async function ProducePage() {
                 key={item.id}
                 className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center"
               >
-                {/* Image Column */}
+                {/* Image Column with CurtainReveal */}
                 <div
                   className={`relative ${
                     isEven ? "lg:col-span-7 lg:order-2" : "lg:col-span-7"
                   }`}
                 >
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-crisp-sm">
+                  <CurtainReveal
+                    curtainColor="mint"
+                    direction={isEven ? "left" : "up"}
+                    duration={1.1}
+                    triggerStart="top 85%"
+                    className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-crisp-sm"
+                  >
                     <Image
                       src={
                         item.image_url || PEXELS_ASSETS.crops.mustardGreens.url
@@ -274,7 +290,7 @@ export default async function ProducePage() {
                         </span>
                       </div>
                     )}
-                  </div>
+                  </CurtainReveal>
                 </div>
 
                 {/* Botanical Details Column */}
@@ -284,12 +300,16 @@ export default async function ProducePage() {
                   }`}
                 >
                   <div>
-                    <span className="text-xs font-semibold uppercase tracking-wider text-krishi-brand block">
+                    <FadeDriftText as="span" className="text-xs font-semibold uppercase tracking-wider text-krishi-brand block">
                       {details.botanicalName}
-                    </span>
-                    <h2 className="font-heading text-3xl sm:text-4xl text-slate-900 font-bold mt-1 leading-snug">
+                    </FadeDriftText>
+                    <RevealText
+                      as="h2"
+                      className="font-heading text-3xl sm:text-4xl text-slate-900 font-bold mt-1 leading-snug"
+                      triggerStart="top 85%"
+                    >
                       {item.title}
-                    </h2>
+                    </RevealText>
                   </div>
 
                   <p className="text-sm sm:text-base text-slate-600 font-sans leading-relaxed">
@@ -297,7 +317,7 @@ export default async function ProducePage() {
                   </p>
 
                   {/* Technical Matrix */}
-                  <div className="rounded-xl border border-slate-200 bg-slate-50 p-5 space-y-3 font-sans text-xs">
+                  <FadeDriftText delay={0.1} triggerStart="top 88%" className="rounded-xl border border-slate-200 bg-slate-50 p-5 space-y-3 font-sans text-xs">
                     <div className="flex items-start gap-2.5">
                       <MapPin className="h-4 w-4 text-krishi-brand shrink-0 mt-0.5" />
                       <div>
@@ -315,7 +335,7 @@ export default async function ProducePage() {
                     </div>
 
                     <div className="flex items-start gap-2.5 pt-2 border-t border-slate-200">
-                      <Scale className="h-4 w-4 text-krishi-sun shrink-0 mt-0.5" />
+                      <Scale className="h-4 w-4 text-krishi-brand shrink-0 mt-0.5" />
                       <div>
                         <span className="text-slate-500 font-medium block">Wholesale Spec &amp; Packaging</span>
                         <span className="text-slate-900 font-semibold">
@@ -323,7 +343,7 @@ export default async function ProducePage() {
                         </span>
                       </div>
                     </div>
-                  </div>
+                  </FadeDriftText>
 
                   {/* Pricing & CTA */}
                   <div className="pt-2 flex flex-wrap items-center justify-between gap-4">
@@ -360,12 +380,16 @@ export default async function ProducePage() {
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-3xl border border-slate-800 bg-slate-900 p-8 sm:p-14 text-slate-100 shadow-crisp-lg relative overflow-hidden">
             <div className="relative z-10 max-w-2xl space-y-4">
-              <span className="text-xs font-semibold uppercase tracking-wider text-krishi-mint block">
+              <FadeDriftText as="span" className="text-xs font-semibold uppercase tracking-wider text-krishi-mint block">
                 Commercial Contract Supply
-              </span>
-              <h2 className="font-heading text-3xl sm:text-4xl text-white font-bold leading-tight">
+              </FadeDriftText>
+              <RevealText
+                as="h2"
+                className="font-heading text-3xl sm:text-4xl text-white font-bold leading-tight"
+                triggerStart="top 85%"
+              >
                 Direct Agricultural Supply Agreements for Hospitality &amp; Supermarket Chains
-              </h2>
+              </RevealText>
               <p className="text-sm sm:text-base text-slate-300 font-sans leading-relaxed">
                 We contract harvest schedules in advance with hotels, restaurants, and grocery
                 chains across Nepal. Secure guaranteed wholesale volume, fixed seasonal pricing,

@@ -19,7 +19,7 @@ const initialJobs: JobPosting[] = [
     id: "job-1",
     title: "Polyhouse & Greenhouse Agronomist",
     department: "Agronomy & Cultivation",
-    location: "Chitwan / Kathmandu, Nepal",
+    location: "Surkhet / Kathmandu, Nepal",
     type: "Full-time",
     status: "active",
   },
@@ -27,7 +27,7 @@ const initialJobs: JobPosting[] = [
     id: "job-2",
     title: "Precision Irrigation & Solar Technician",
     department: "Engineering & Maintenance",
-    location: "Chitwan, Nepal",
+    location: "Birendranagar, Surkhet, Nepal",
     type: "Full-time",
     status: "active",
   },
@@ -47,7 +47,7 @@ export default function AdminWorkPage() {
 
   const [title, setTitle] = useState("");
   const [department, setDepartment] = useState("Agronomy & Cultivation");
-  const [location, setLocation] = useState("Chitwan, Nepal");
+  const [location, setLocation] = useState("Birendranagar, Surkhet, Nepal");
   const [type, setType] = useState("Full-time");
 
   const handleAddJob = (e: React.FormEvent) => {

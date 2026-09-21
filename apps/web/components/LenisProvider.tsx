@@ -5,8 +5,34 @@
 
 "use client";
 
-import { ReactNode } from "react";
-import { ReactLenis } from "@studio-freight/react-lenis";
+import { ReactNode, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { ReactLenis, useLenis } from "@studio-freight/react-lenis";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+function ScrollTriggerSync() {
+  const pathname = usePathname();
+
+  useLenis(() => {
+    ScrollTrigger.update();
+  });
+
+  useEffect(() => {
+    // Refresh ScrollTrigger calculations after route transition & layout rendering
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 150);
+
+    return () => clearTimeout(timer);
+  }, [pathname]);
+
+  return null;
+}
 
 export function LenisProvider({ children }: { children: ReactNode }) {
   return (
@@ -19,6 +45,7 @@ export function LenisProvider({ children }: { children: ReactNode }) {
         wheelMultiplier: 0.9,
       }}
     >
+      <ScrollTriggerSync />
       {children}
     </ReactLenis>
   );

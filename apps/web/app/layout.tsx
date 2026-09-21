@@ -20,30 +20,36 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_WEB_URL || "http://localhost:3000"),
   title: {
-    default: "Green Nepal Krishi Farm | Commercial Organic Agriculture in Nepal",
-    template: "%s | Green Nepal Krishi Farm",
+    default: "Green Nepal Agricultural Farm | Commercial Organic Agriculture in Nepal",
+    template: "%s | Green Nepal Agricultural Farm",
   },
   description:
     "Leading commercial agricultural enterprise in Nepal specializing in high-yield organic crops, sustainable polyhouse cultivation, and empowering local farming communities.",
   keywords: [
-    "Green Nepal Krishi Farm",
+    "Green Nepal Agricultural Farm",
     "Nepal Agriculture",
     "Commercial Farming Nepal",
     "Organic Produce Kathmandu",
-    "Chitwan Agriculture",
+    "Surkhet Agriculture",
+    "Birendranagar Farm",
     "Fresh Vegetables Nepal",
     "Sustainable Farm Nepal",
   ],
-  authors: [{ name: "Green Nepal Krishi Farm" }],
-  creator: "Green Nepal Krishi Farm",
+  authors: [{ name: "Green Nepal Agricultural Farm" }],
+  creator: "Green Nepal Agricultural Farm",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://greennepalkrishi.com",
-    title: "Green Nepal Krishi Farm | Commercial Organic Agriculture",
+    title: "Green Nepal Agricultural Farm | Commercial Organic Agriculture",
     description:
       "Cultivating quality, sustainability, and fresh agricultural produce across Nepal.",
-    siteName: "Green Nepal Krishi Farm",
+    siteName: "Green Nepal Agricultural Farm",
+  },
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/icon-color.svg",
   },
 };
 

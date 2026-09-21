@@ -13,11 +13,11 @@ export default function AdminCmsSettingsPage() {
     "Nourishing Nepal With Sustainable Agriculture"
   );
   const [subheading, setSubheading] = useState(
-    "Green Nepal Krishi Farm unites modern precision farming technologies with nutrient-dense Himalayan soils to deliver organic, high-yield produce."
+    "Green Nepal Agricultural Farm unites modern precision farming technologies with nutrient-dense Himalayan soils to deliver organic, high-yield produce."
   );
   const [phone, setPhone] = useState("+977 1-4XXXXXX / +977 98XXXXXXXX");
   const [email, setEmail] = useState("wholesale@greennepalkrishi.com");
-  const [address, setAddress] = useState("Chitwan Valley & Kathmandu Valley, Nepal");
+  const [address, setAddress] = useState("Birendranagar, Surkhet & Kathmandu Valley, Nepal");
   const [saved, setSaved] = useState(false);
 
   const handleSave = (e: React.FormEvent) => {

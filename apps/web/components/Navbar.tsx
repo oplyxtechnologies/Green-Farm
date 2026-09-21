@@ -7,8 +7,9 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, User } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { MagneticButton } from "./MagneticButton";
 
 const navLinks = [
@@ -28,22 +29,15 @@ export function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 w-full bg-krishi-dark/90 backdrop-blur-md border-b border-white/10 transition-all">
       <div className="flex items-center justify-between px-8 py-4 w-full text-krishi-cream">
         {/* Left (Logo Group) */}
-        <Link href="/" className="flex items-center gap-3.5 group">
-          {/* Circular logo mark (dark background, light 'G' in official brand color) */}
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-krishi-dark border border-krishi-forest text-krishi-cream shadow-sm transition-transform duration-300 group-hover:scale-105">
-            <span className="font-serif italic font-semibold text-lg text-krishi-brand">
-              G
-            </span>
-          </div>
-          {/* Stacked text: "Green Nepal" over "KRISHI FARM . NEPAL" */}
-          <div className="flex flex-col">
-            <span className="font-serif text-lg font-bold tracking-tight text-krishi-cream leading-tight">
-              Green Nepal
-            </span>
-            <span className="font-sans text-[9px] font-semibold uppercase tracking-widest text-krishi-cream/70">
-              KRISHI FARM . NEPAL
-            </span>
-          </div>
+        <Link href="/" className="flex items-center group transition-opacity hover:opacity-90">
+          <Image
+            src="/Logo.svg"
+            alt="Green Nepal Agricultural Farm"
+            width={160}
+            height={48}
+            priority
+            className="h-10 sm:h-11 w-auto object-contain"
+          />
         </Link>
 
         {/* Center (Navigation Links) */}
@@ -77,17 +71,6 @@ export function Navbar() {
               Request Harvest Dispatch
             </Link>
           </MagneticButton>
-
-          {/* Secondary Link: "STAFF PORTAL" link with a small user/login icon */}
-          <a
-            href="http://localhost:3001/login"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 font-sans text-xs uppercase tracking-wider text-krishi-cream/80 hover:text-krishi-cream transition-colors"
-          >
-            <User className="h-3.5 w-3.5 text-krishi-sun" />
-            <span>STAFF PORTAL</span>
-          </a>
         </div>
 
         {/* Mobile menu trigger */}
@@ -127,15 +110,6 @@ export function Navbar() {
             >
               Request Harvest Dispatch
             </Link>
-            <a
-              href="http://localhost:3001/login"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-1.5 text-xs font-sans uppercase tracking-wider text-krishi-cream/80 hover:text-krishi-cream py-2"
-            >
-              <User className="h-3.5 w-3.5 text-krishi-sun" />
-              <span>STAFF PORTAL</span>
-            </a>
           </div>
         </div>
       )}

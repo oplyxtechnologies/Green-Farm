@@ -50,7 +50,7 @@ export default function DashboardOverviewPage() {
         <div className="rounded-3xl bg-gradient-to-r from-forest to-forest-dark p-8 text-white shadow-farm-sm">
           <div className="max-w-2xl">
             <span className="text-xs uppercase tracking-widest text-farm-300 font-bold">
-              Green Nepal Krishi Farm Management System
+              Green Nepal Agricultural Farm Management System
             </span>
             <h2 className="mt-2 text-2xl font-bold sm:text-3xl">
               Namaste &amp; Welcome back!

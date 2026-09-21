@@ -2,7 +2,7 @@
   "name": "@green-farm/db",
   "version": "1.0.0",
   "private": true,
-  "description": "Supabase database schema, TypeScript types, and client utilities for Green Nepal Krishi Farm",
+  "description": "Supabase database schema, TypeScript types, and client utilities for Green Nepal Agricultural Farm",
   "scripts": {
     "check-types": "tsc --noEmit"
   },

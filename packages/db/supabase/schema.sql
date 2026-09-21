@@ -1,5 +1,5 @@
 -- ==============================================================================
--- Green Nepal Krishi Farm - Supabase Database Schema
+-- Green Nepal Agricultural Farm - Supabase Database Schema
 -- Run this script in your Supabase SQL Editor (Dashboard -> SQL Editor -> New Query)
 -- ==============================================================================
 
@@ -115,7 +115,7 @@ CREATE POLICY "Allow authenticated full access on enquiries"
     WITH CHECK (true);
 
 -- ------------------------------------------------------------------------------
--- Seed Sample Data for Green Nepal Krishi Farm
+-- Seed Sample Data for Green Nepal Agricultural Farm
 -- ------------------------------------------------------------------------------
 
 INSERT INTO public.produce (title, slug, category, description, image_url, season, is_featured, price_estimate)
@@ -129,6 +129,6 @@ ON CONFLICT DO NOTHING;
 
 INSERT INTO public.news (title, slug, excerpt, content, cover_image, author, published_at)
 VALUES
-('Green Nepal Krishi Farm Expands Sustainable Drip Irrigation Network', 'expands-sustainable-drip-irrigation', 'Our farm has installed smart solar drip irrigation covering 40 additional hectares, cutting water usage by 45%.', 'We are proud to announce the successful installation of our expanded smart drip irrigation system powered entirely by photovoltaic solar arrays. This project demonstrates our commitment to water conservation in Nepalese agriculture while increasing yield efficiency for seasonal crops.', 'https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?auto=format&fit=crop&w=1200&q=80', 'Farm Director', NOW() - INTERVAL '2 days'),
-('Annual Harvest Festival 2026: Celebrating Community and Soil Health', 'annual-harvest-festival-2026', 'Join us next month as Green Nepal Krishi Farm opens its gates to local cooperatives, students, and agricultural partners.', 'Soil fertility and community empowerment remain the pillars of our success. During our 2026 Harvest Festival, attendees will experience bio-composting workshops, farm tours, and farm-to-table tasting sessions featuring organic local delicacies.', 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80', 'Community Liaison', NOW() - INTERVAL '7 days')
+('Green Nepal Agricultural Farm Expands Sustainable Drip Irrigation Network', 'expands-sustainable-drip-irrigation', 'Our farm has installed smart solar drip irrigation covering 40 additional hectares, cutting water usage by 45%.', 'We are proud to announce the successful installation of our expanded smart drip irrigation system powered entirely by photovoltaic solar arrays. This project demonstrates our commitment to water conservation in Nepalese agriculture while increasing yield efficiency for seasonal crops.', 'https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?auto=format&fit=crop&w=1200&q=80', 'Farm Director', NOW() - INTERVAL '2 days'),
+('Annual Harvest Festival 2026: Celebrating Community and Soil Health', 'annual-harvest-festival-2026', 'Join us next month as Green Nepal Agricultural Farm opens its gates to local cooperatives, students, and agricultural partners.', 'Soil fertility and community empowerment remain the pillars of our success. During our 2026 Harvest Festival, attendees will experience bio-composting workshops, farm tours, and farm-to-table tasting sessions featuring organic local delicacies.', 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80', 'Community Liaison', NOW() - INTERVAL '7 days')
 ON CONFLICT DO NOTHING;

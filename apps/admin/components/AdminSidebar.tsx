@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { createBrowserClient } from "@green-farm/db/client";
 import {
@@ -68,18 +69,26 @@ export function AdminSidebar() {
   return (
     <aside className="w-64 bg-forest-dark text-white shrink-0 flex flex-col border-r border-forest-medium/40 min-h-screen">
       {/* Brand Header */}
-      <div className="h-20 flex items-center gap-3 px-6 border-b border-forest-medium/40">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-farm-500 text-forest-dark font-bold shadow-md">
-          <Sprout className="h-6 w-6" />
-        </div>
-        <div>
-          <span className="block text-sm font-bold tracking-tight text-white leading-tight">
-            Green Nepal
-          </span>
-          <span className="block text-[10px] font-bold uppercase tracking-widest text-farm-300">
-            Farm CMS Admin
-          </span>
-        </div>
+      <div className="h-20 flex items-center px-6 border-b border-forest-medium/40">
+        <Link href="/dashboard" className="flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-krishi-brand p-1.5 shadow-md">
+            <Image
+              src="/icon-white.svg"
+              alt="Green Nepal Agricultural Farm Logo"
+              width={28}
+              height={28}
+              className="h-full w-full object-contain"
+            />
+          </div>
+          <div>
+            <span className="block text-sm font-bold tracking-tight text-white leading-tight">
+              Green Nepal
+            </span>
+            <span className="block text-[10px] font-bold uppercase tracking-widest text-krishi-mint">
+              Farm CMS Admin
+            </span>
+          </div>
+        </Link>
       </div>
 
       {/* Navigation Links */}

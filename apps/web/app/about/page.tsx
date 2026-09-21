@@ -5,22 +5,27 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight, Sprout, Award, HeartHandshake } from "lucide-react";
 import { MagneticButton } from "../../components/MagneticButton";
 import { PEXELS_ASSETS } from "../../lib/pexels";
+import {
+  RevealText,
+  FadeDriftText,
+  StaggeredLineReveal,
+  ClipWipeImage,
+} from "../../components/animations";
 
 export const metadata: Metadata = {
-  title: "Our Terroir & Agronomic Philosophy | Green Nepal Krishi Farm",
+  title: "Our Terroir & Agronomic Philosophy | Green Nepal Agricultural Farm",
   description:
-    "Learn about Green Nepal Krishi Farm's commitment to commercial-scale organic agriculture, regenerative soil vitality, and local rural empowerment across Nepal.",
+    "Learn about Green Nepal Agricultural Farm's commitment to commercial-scale organic agriculture, regenerative soil vitality, and local rural empowerment across Nepal.",
 };
 
 const agronomicMilestones = [
   {
     year: "Foundational Vision",
-    heading: "Alluvial Soil Regeneration in Chitwan",
-    text: "Established initial commercial acreage in the alluvial basin of Chitwan. Converted depleted monoculture ground into living biological soil using intensive cover cropping, cow manure vermicast, and indigenous mycorrhizal fungi.",
+    heading: "Soil Regeneration in Surkhet Valley",
+    text: "Established initial commercial acreage in the fertile valley of Birendranagar, Surkhet. Converted depleted monoculture ground into living biological soil using intensive cover cropping, cow manure vermicast, and indigenous mycorrhizal fungi.",
   },
   {
     year: "Technological Maturation",
@@ -46,18 +51,21 @@ export default function AboutPage() {
       <section className="pt-28 pb-20 sm:pt-32 sm:pb-24 border-b border-slate-200 bg-slate-50/70">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <span className="text-xs font-semibold uppercase tracking-wider text-krishi-brand block mb-3">
+            <FadeDriftText as="span" className="text-xs font-semibold uppercase tracking-wider text-krishi-brand block mb-3">
               Institutional Heritage · Terroir &amp; Mission
-            </span>
-            <h1 className="font-heading text-4xl sm:text-6xl text-slate-900 font-bold leading-display tracking-tight">
+            </FadeDriftText>
+            <RevealText
+              as="h1"
+              className="font-heading text-4xl sm:text-6xl text-slate-900 font-bold leading-display tracking-tight"
+            >
               Pioneering Commercial-Scale Organic Agriculture in Nepal
-            </h1>
-            <p className="mt-6 text-base sm:text-lg text-slate-700 font-sans leading-relaxed">
-              Green Nepal Krishi Farm was founded on a simple conviction: that feeding our
-              nation with commercial abundance does not require chemical violence against
-              the soil. By uniting ancient agrarian wisdom with modern precision agronomy,
-              we grow produce of pristine purity.
-            </p>
+            </RevealText>
+            <StaggeredLineReveal
+              className="mt-6 text-base sm:text-lg text-slate-700 font-sans leading-relaxed"
+              stagger={0.02}
+            >
+              Green Nepal Agricultural Farm was founded on a simple conviction: that feeding our nation with commercial abundance does not require chemical violence against the soil. By uniting ancient agrarian wisdom with modern precision agronomy, we grow produce of pristine purity.
+            </StaggeredLineReveal>
           </div>
         </div>
       </section>
@@ -66,24 +74,28 @@ export default function AboutPage() {
       <section className="py-20 border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left Image Feature */}
+            {/* Left Image Feature with ClipWipeImage */}
             <div className="lg:col-span-6">
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-100 shadow-crisp-sm">
-                <Image
-                  src={PEXELS_ASSETS.terroir.chitwanFarmland.url}
-                  alt={PEXELS_ASSETS.terroir.chitwanFarmland.alt}
+                <ClipWipeImage
+                  src={PEXELS_ASSETS.terroir.surkhetFarmland.url}
+                  alt={PEXELS_ASSETS.terroir.surkhetFarmland.alt}
                   fill
                   priority
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
+                  direction="right"
+                  scaleImage
+                  triggerStart="top 85%"
+                  className="h-full w-full"
+                  imageClassName="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6 text-krishi-cream">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-krishi-mint block mb-1">
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-6 left-6 right-6 text-krishi-cream z-10">
+                  <FadeDriftText as="span" className="text-xs font-semibold uppercase tracking-wider text-krishi-mint block mb-1">
                     Managed Agro-Ecosystems
-                  </span>
+                  </FadeDriftText>
                   <p className="font-heading text-lg sm:text-xl font-bold">
-                    Chitwan Alluvial Basin &amp; Kathmandu Valley Protected Terraces
+                    Surkhet Valley &amp; Kathmandu Protected Terraces
                   </p>
                 </div>
               </div>
@@ -91,17 +103,23 @@ export default function AboutPage() {
 
             {/* Right Narrative Copy */}
             <div className="lg:col-span-6 space-y-6">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 block">
+              <FadeDriftText as="span" className="text-xs font-semibold uppercase tracking-wider text-slate-500 block">
                 Agronomic Philosophy
-              </span>
-              <h2 className="font-heading text-3xl sm:text-4xl text-slate-900 font-bold leading-snug">
+              </FadeDriftText>
+              <RevealText
+                as="h2"
+                className="font-heading text-3xl sm:text-4xl text-slate-900 font-bold leading-snug"
+                triggerStart="top 85%"
+              >
                 Restoring Biological Vitality to the Land We Inhabit
-              </h2>
-              <p className="text-sm sm:text-base text-slate-600 font-sans leading-relaxed">
-                Modern agriculture in South Asia has too often traded long-term fertility
-                for short-term synthetic spikes. At Green Nepal Krishi Farm, we operate under
-                a closed-loop biological framework. 
-              </p>
+              </RevealText>
+              <StaggeredLineReveal
+                className="text-sm sm:text-base text-slate-600 font-sans leading-relaxed"
+                stagger={0.018}
+                triggerStart="top 85%"
+              >
+                Modern agriculture in South Asia has too often traded long-term fertility for short-term synthetic spikes. At Green Nepal Agricultural Farm, we operate under a closed-loop biological framework.
+              </StaggeredLineReveal>
               <p className="text-sm sm:text-base text-slate-600 font-sans leading-relaxed">
                 Our farm produces its own rich vermicast using indigenous earthworms,
                 recycles crop residuals into mulch, and protects irrigation water tables with
@@ -110,7 +128,7 @@ export default function AboutPage() {
               </p>
 
               <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-slate-200">
-                <div className="flex items-start gap-3">
+                <FadeDriftText delay={0.1} className="flex items-start gap-3">
                   <Sprout className="h-5 w-5 text-krishi-brand shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-heading font-bold text-slate-900 text-sm">
@@ -120,9 +138,9 @@ export default function AboutPage() {
                       100% bio-inputs, neem sprays &amp; compost tea
                     </p>
                   </div>
-                </div>
+                </FadeDriftText>
 
-                <div className="flex items-start gap-3">
+                <FadeDriftText delay={0.2} className="flex items-start gap-3">
                   <HeartHandshake className="h-5 w-5 text-krishi-brand shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-heading font-bold text-slate-900 text-sm">
@@ -132,7 +150,7 @@ export default function AboutPage() {
                       Direct living wages &amp; technical mentorship
                     </p>
                   </div>
-                </div>
+                </FadeDriftText>
               </div>
             </div>
           </div>
@@ -143,18 +161,24 @@ export default function AboutPage() {
       <section className="py-24 bg-slate-50/50 border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-16">
-            <span className="text-xs font-semibold uppercase tracking-wider text-krishi-brand block mb-2">
+            <FadeDriftText as="span" className="text-xs font-semibold uppercase tracking-wider text-krishi-brand block mb-2">
               Our Journey · Agronomic Evolution
-            </span>
-            <h3 className="font-heading text-3xl sm:text-4xl text-slate-900 font-bold">
+            </FadeDriftText>
+            <RevealText
+              as="h3"
+              className="font-heading text-3xl sm:text-4xl text-slate-900 font-bold"
+              triggerStart="top 85%"
+            >
               How We Scaled Sustainable Farming
-            </h3>
+            </RevealText>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {agronomicMilestones.map((milestone, idx) => (
-              <div
+              <FadeDriftText
                 key={idx}
+                delay={idx * 0.1}
+                triggerStart="top 88%"
                 className="relative rounded-2xl border border-slate-200 bg-white p-8 shadow-crisp-sm space-y-3"
               >
                 <span className="text-xs font-bold uppercase tracking-wider text-krishi-brand block">
@@ -166,7 +190,7 @@ export default function AboutPage() {
                 <p className="text-sm text-slate-600 font-sans leading-relaxed">
                   {milestone.text}
                 </p>
-              </div>
+              </FadeDriftText>
             ))}
           </div>
         </div>
@@ -175,17 +199,25 @@ export default function AboutPage() {
       {/* 4. Institutional Standards & Certification */}
       <section className="py-20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 sm:p-12 space-y-6">
+          <FadeDriftText
+            delay={0.1}
+            triggerStart="top 85%"
+            className="rounded-3xl border border-slate-200 bg-slate-50 p-8 sm:p-12 space-y-6"
+          >
             <div className="flex items-center gap-2">
-              <Award className="h-5 w-5 text-krishi-sun" />
+              <Award className="h-5 w-5 text-krishi-brand" />
               <span className="text-xs font-bold uppercase tracking-wider text-slate-900">
                 Institutional Quality Assurance
               </span>
             </div>
 
-            <h3 className="font-heading text-2xl sm:text-3xl text-slate-900 font-bold">
+            <RevealText
+              as="h3"
+              className="font-heading text-2xl sm:text-3xl text-slate-900 font-bold"
+              triggerStart="top 85%"
+            >
               Direct Transparency from Seedling to Commercial Crate
-            </h3>
+            </RevealText>
 
             <p className="text-sm sm:text-base text-slate-600 font-sans leading-relaxed">
               Every lot leaving our packing facility carries documented harvest records,
@@ -213,7 +245,7 @@ export default function AboutPage() {
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>
-          </div>
+          </FadeDriftText>
         </div>
       </section>
     </div>

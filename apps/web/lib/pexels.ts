@@ -51,7 +51,7 @@ export const PEXELS_API_KEY =
   "FJKknBx9zwzyaY9wBWpONiL8KygksecW7FUs61kP2EMXAtrBsezvyldi";
 
 /**
- * Curated, verified high-resolution Pexels assets for Green Nepal Krishi Farm
+ * Curated, verified high-resolution Pexels assets for Green Nepal Agricultural Farm
  */
 export const PEXELS_ASSETS = {
   // Hero Video (Aerial drone view of lush terrace crops & farmland)
@@ -107,10 +107,10 @@ export const PEXELS_ASSETS = {
   },
   // Terroir & Facility Photography
   terroir: {
-    chitwanFarmland: {
+    surkhetFarmland: {
       id: 38521662,
       url: "https://images.pexels.com/photos/38521662/pexels-photo-38521662.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=800&w=1200",
-      alt: "Chitwan fertile farmlands and mountain valley terraces",
+      alt: "Surkhet Valley fertile farmlands and mountain terraces",
     },
     solarDrip: {
       id: 7791939,

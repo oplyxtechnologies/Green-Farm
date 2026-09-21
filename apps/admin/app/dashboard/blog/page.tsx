@@ -10,7 +10,7 @@ import { Plus, Trash2, Newspaper, RefreshCw, Loader2, Calendar } from "lucide-re
 const sampleArticles: News[] = [
   {
     id: "news-1",
-    title: "Green Nepal Krishi Farm Expands Sustainable Drip Irrigation Network",
+    title: "Green Nepal Agricultural Farm Expands Sustainable Drip Irrigation Network",
     slug: "expands-sustainable-drip-irrigation",
     excerpt: "Installed smart solar drip irrigation covering 40 additional hectares.",
     content: "Full detailed story regarding water conservation and yield increase.",
