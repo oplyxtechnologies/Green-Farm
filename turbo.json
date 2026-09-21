@@ -5,12 +5,20 @@
     "NEXT_PUBLIC_SUPABASE_URL",
     "NEXT_PUBLIC_SUPABASE_ANON_KEY",
     "SUPABASE_SERVICE_ROLE_KEY",
-    "NODE_ENV"
+    "NODE_ENV",
+    "PEXELS_API_KEY",
+    "NEXT_PUBLIC_PEXELS_API_KEY",
+    "NEXT_PUBLIC_WEB_URL"
   ],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"],
+      "env": [
+        "PEXELS_API_KEY",
+        "NEXT_PUBLIC_PEXELS_API_KEY",
+        "NEXT_PUBLIC_WEB_URL"
+      ]
     },
     "lint": {
       "dependsOn": ["^lint"]
