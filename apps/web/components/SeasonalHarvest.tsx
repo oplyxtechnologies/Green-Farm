@@ -53,7 +53,7 @@ export function SeasonalHarvest() {
         {/* Asymmetrical Staggered Crop Grid */}
         <div className="mt-12 sm:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start w-full min-w-0">
           {/* Crop 1: Vine Tomatoes (Tall Feature - 5 columns) */}
-          <div className="col-span-12 lg:col-span-5 w-full max-w-md mx-auto lg:max-w-none flex flex-col h-auto space-y-5 min-w-0">
+          <div className="lg:col-span-5 w-full max-w-full lg:max-w-none flex flex-col h-auto space-y-5 min-w-0">
             <CurtainReveal
               curtainColor="mint"
               direction="up"
@@ -105,9 +105,9 @@ export function SeasonalHarvest() {
           </div>
 
           {/* Right Column (7 columns): Crop 2 (Wide) and Crop 3 (Pushed-down Square) */}
-          <div className="col-span-12 lg:col-span-7 space-y-12 sm:space-y-16 lg:space-y-20 w-full min-w-0">
+          <div className="lg:col-span-7 space-y-12 sm:space-y-16 lg:space-y-20 w-full min-w-0">
             {/* Crop 2: Capsicums / Bell Peppers (Wide Aspect Ratio) */}
-            <div className="w-full max-w-md mx-auto lg:max-w-none flex flex-col h-auto space-y-5 min-w-0">
+            <div className="w-full max-w-full lg:max-w-none flex flex-col h-auto space-y-5 min-w-0">
               <CurtainReveal
                 curtainColor="brand"
                 direction="left"
@@ -158,7 +158,7 @@ export function SeasonalHarvest() {
             </div>
 
             {/* Crop 3: Mustard Greens (Pushed Down Square/Offset) */}
-            <div className="w-full max-w-md mx-auto lg:max-w-md lg:ml-auto flex flex-col h-auto space-y-5 min-w-0">
+            <div className="w-full max-w-full lg:max-w-md lg:ml-auto flex flex-col h-auto space-y-5 min-w-0">
               <CurtainReveal
                 curtainColor="mint"
                 direction="right"

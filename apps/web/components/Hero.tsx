@@ -32,9 +32,9 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-krishi-dark via-krishi-dark/40 to-transparent pointer-events-none" />
 
       {/* 12-Column Asymmetrical Grid Layout */}
-      <div className="grid grid-cols-12 gap-8 w-full relative z-10 max-w-7xl mx-auto items-end">
-        {/* Left Column (col-span-8): Primary headline and subheadline */}
-        <div className="col-span-12 lg:col-span-8">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full relative z-10 max-w-7xl mx-auto items-end">
+        {/* Left Column (lg:col-span-8): Primary headline and subheadline */}
+        <div className="lg:col-span-8">
           {/* Eyebrow */}
           <div className="text-krishi-cream  text-xs tracking-widest  mb-6 flex items-center gap-2">
         
@@ -58,8 +58,8 @@ export function Hero() {
           </p>
         </div>
 
-        {/* Right Column (col-span-4): Primary CTA and operational metadata */}
-        <div className="col-span-12 lg:col-span-4 flex flex-col items-start lg:items-end justify-end gap-6">
+        {/* Right Column (lg:col-span-4): Primary CTA and operational metadata */}
+        <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-end gap-6">
           {/* Operational Metadata */}
           <div className="flex flex-col text-left lg:text-right space-y-1.5 border-l-2 lg:border-l-0 lg:border-r-2 border-krishi-mint/40 pl-4 lg:pl-0 lg:pr-4">
             <span className="font-mono text-[11px] uppercase tracking-widest text-krishi-mint font-semibold">
