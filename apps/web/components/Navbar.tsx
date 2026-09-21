@@ -27,7 +27,7 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full bg-krishi-dark/90 backdrop-blur-md border-b border-white/10 transition-all">
-      <div className="flex items-center justify-between px-8 py-4 w-full text-krishi-cream">
+      <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 sm:py-4 w-full text-krishi-cream">
         {/* Left (Logo Group) */}
         <Link href="/" className="flex items-center group transition-opacity hover:opacity-90">
           <Image

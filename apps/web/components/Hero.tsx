@@ -12,7 +12,7 @@ import { PEXELS_ASSETS } from "../lib/pexels";
  */
 export function Hero() {
   return (
-    <section className="relative min-h-screen w-full flex items-end pb-24 pt-32 px-8 overflow-hidden bg-krishi-dark">
+    <section className="relative min-h-screen w-full max-w-full flex items-end pb-16 sm:pb-24 pt-28 sm:pt-32 px-4 sm:px-6 lg:px-8 overflow-hidden bg-krishi-dark">
       {/* Background Video */}
       <video
         autoPlay
@@ -44,7 +44,7 @@ export function Hero() {
           {/* Primary Headline with RevealText GSAP component */}
           <RevealText
             as="h1"
-            className="text-krishi-cream font-heading text-6xl md:text-8xl font-bold leading-editorial tracking-tight"
+            className="text-krishi-cream font-heading text-4xl sm:text-6xl md:text-8xl font-bold leading-editorial tracking-tight break-words"
             delay={0.15}
             duration={1.05}
           >

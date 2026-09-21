@@ -60,10 +60,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${plusJakarta.variable} ${inter.variable}`}>
-      <body className="min-h-screen flex flex-col antialiased bg-background text-text font-sans selection:bg-krishi-mint selection:text-krishi-mint-text">
+      <body className="min-h-screen flex flex-col antialiased bg-background text-text font-sans selection:bg-krishi-mint selection:text-krishi-mint-text overflow-x-hidden w-full max-w-full">
         <LenisProvider>
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 w-full max-w-full overflow-x-hidden">{children}</main>
           <Footer />
         </LenisProvider>
       </body>

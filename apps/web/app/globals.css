@@ -52,6 +52,8 @@
 /* Anti-AI-Slop Gate 62: overflow-x: clip on html and body, never hidden */
 html {
   overflow-x: clip;
+  width: 100%;
+  max-width: 100%;
   scroll-behavior: initial;
   background-color: var(--color-background);
   color: var(--color-text);
@@ -62,6 +64,8 @@ html {
 body {
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   overflow-x: clip;
+  width: 100%;
+  max-width: 100%;
   min-height: 100vh;
   margin: 0;
   padding: 0;

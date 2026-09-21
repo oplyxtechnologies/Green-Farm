@@ -63,7 +63,7 @@ export function RevealText({
       gsap.fromTo(
         targets,
         {
-          y: "115%",
+          y: "120%",
           opacity: 0,
         },
         {
@@ -92,12 +92,12 @@ export function RevealText({
   const words = typeof children === "string" ? children.trim().split(/\s+/) : [];
 
   return (
-    <Component ref={containerRef as any} className={`relative ${className}`}>
+    <Component ref={containerRef as any} className={`relative max-w-full ${className}`}>
       {splitWords ? (
         words.map((word, i) => (
           <React.Fragment key={i}>
-            <span className="inline-block overflow-hidden align-top pb-[0.18em] -mb-[0.18em]">
-              <span className="reveal-word inline-block will-change-transform">
+            <span className="inline-block overflow-hidden align-top pb-[0.25em] -mb-[0.25em] max-w-full">
+              <span className="reveal-word inline-block will-change-transform max-w-full break-words">
                 {word}
               </span>
             </span>
@@ -105,8 +105,8 @@ export function RevealText({
           </React.Fragment>
         ))
       ) : (
-        <span className="inline-block overflow-hidden w-full align-top pb-[0.18em] -mb-[0.18em]">
-          <span className="reveal-block inline-block will-change-transform w-full">
+        <span className="inline-block overflow-hidden w-full align-top pb-[0.25em] -mb-[0.25em]">
+          <span className="reveal-block inline-block will-change-transform w-full break-words">
             {children}
           </span>
         </span>

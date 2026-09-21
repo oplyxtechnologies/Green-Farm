@@ -14,8 +14,8 @@ import { PEXELS_ASSETS } from "../lib/pexels";
  */
 export function TerroirFacilities() {
   return (
-    <section className="py-32 px-8 bg-krishi-cream border-b border-slate-200 overflow-hidden">
-      <div className="mx-auto max-w-7xl space-y-32">
+    <section className="py-20 sm:py-28 lg:py-32 px-4 sm:px-6 lg:px-8 bg-krishi-cream border-b border-slate-200 w-full max-w-full overflow-hidden">
+      <div className="mx-auto max-w-7xl space-y-20 lg:space-y-32 w-full min-w-0">
         {/* Section Lead / Kicker */}
         <div className="max-w-3xl space-y-3">
           <span className="text-xs font-mono font-semibold uppercase tracking-widest text-krishi-brand block">
@@ -23,7 +23,7 @@ export function TerroirFacilities() {
           </span>
           <RevealText
             as="h2"
-            className="font-heading text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight leading-tight"
+            className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-tight"
             triggerStart="top 90%"
           >
             Engineered cultivation across complementary Nepalese microclimates.
