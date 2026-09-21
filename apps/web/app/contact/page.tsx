@@ -111,7 +111,7 @@ export default function ContactPage() {
                       <h4 className="font-heading font-bold text-slate-900 text-sm">
                         Direct Lines
                       </h4>
-                      <p className="text-slate-600 mt-1 leading-relaxed font-mono text-[11px]">
+                      <p className="text-slate-600 mt-1 leading-relaxed font-sans text-xs">
                         Wholesale Desk: +977 1-4720198
                         <br />
                         Harvest Logistics: +977 9851023456
@@ -125,7 +125,7 @@ export default function ContactPage() {
                       <h4 className="font-heading font-bold text-slate-900 text-sm">
                         Official Correspondence
                       </h4>
-                      <p className="text-slate-600 mt-1 leading-relaxed font-mono text-[11px]">
+                      <p className="text-slate-600 mt-1 leading-relaxed font-sans text-xs">
                         wholesale@greennepalagricultural.com
                         <br />
                         operations@greennepalagricultural.com

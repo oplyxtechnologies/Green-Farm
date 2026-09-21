@@ -65,7 +65,7 @@ export function Footer() {
               <p className="text-slate-200 font-medium">Birendranagar Facility</p>
               <p>Valley Farmlands &amp; Solar-Pump Irrigation</p>
               <p className="text-slate-200 font-medium pt-2">Kathmandu Valley Facility</p>
-              <p>Climate-Controlled Multi-Span Polyhouses</p>
+              <p>Climate-Shielded Polyhouses</p>
             </div>
           </div>
 

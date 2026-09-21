@@ -125,7 +125,7 @@ export const PEXELS_ASSETS = {
     polyhouse: {
       id: 32738494,
       url: "https://images.pexels.com/photos/32738494/pexels-photo-32738494.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=800&w=1200",
-      alt: "Engineered multi-span commercial polyhouse greenhouses",
+      alt: "Climate-shielded commercial polyhouse greenhouses",
     },
   },
 };

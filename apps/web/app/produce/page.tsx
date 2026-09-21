@@ -54,7 +54,7 @@ const botanicalLookup: Record<string, BotanicalDetails> = {
   },
   "heirloom-greenhouse-tomatoes": {
     botanicalName: "Solanum lycopersicum 'San Marzano & Heirloom'",
-    terroirOrigin: "Kathmandu Valley multi-span polyhouse · Precision sensor fertigation",
+    terroirOrigin: "Kathmandu Valley climate-shielded polyhouse · Precision drip irrigation",
     dispatchProtocol: "20 kg rigid pulp cell divider trays · picked at breaker stage · 10°C–12°C transit",
     minOrder: "40 kg batch (2 × 20 kg crates)",
   },
@@ -118,7 +118,7 @@ const fallbackProduce: Produce[] = [
     slug: "heirloom-greenhouse-tomatoes",
     category: "Protected Vine",
     description:
-      "Multi-span polyhouse cultivated tomatoes with automated root-zone drip fertigation. Plump, deep-red, with balanced acidity engineered for premier culinary hospitality.",
+      "Climate-shielded polyhouse cultivated tomatoes with precision drip irrigation. Plump, deep-red, with balanced natural sweetness and acidity for premier culinary hospitality.",
     image_url: PEXELS_ASSETS.crops.tomatoes.url,
     season: "Year-Round Harvest",
     is_featured: true,
@@ -292,19 +292,19 @@ export default async function ProducePage() {
                       className="object-cover transition-transform duration-700 ease-out hover:scale-105"
                     />
 
-                    {/* Monograph Index Pill */}
+                    {/* Monograph Index Editorial Spec Tags */}
                     <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
-                      <span className="rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-xs font-semibold uppercase tracking-wider text-slate-900 border border-slate-200">
+                      <span className="inline-flex items-center px-2.5 py-1 text-xs font-medium tracking-tight text-slate-800 bg-white/95 backdrop-blur-md rounded-md border border-slate-200/60 shadow-sm">
                         № 0{index + 1}
                       </span>
-                      <span className="rounded-full bg-slate-900/85 backdrop-blur-md px-3 py-1 text-xs font-semibold uppercase tracking-wider text-krishi-cream">
+                      <span className="inline-flex items-center px-2.5 py-1 text-xs font-medium tracking-tight text-slate-200 bg-slate-900/90 backdrop-blur-md rounded-md shadow-sm">
                         {item.category || "Organic Crop"}
                       </span>
                     </div>
 
                     {item.is_featured && (
                       <div className="absolute bottom-4 left-4 z-10">
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-krishi-brand/90 backdrop-blur-md px-3 py-1 text-xs font-bold text-white">
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium tracking-tight text-white bg-krishi-brand/95 backdrop-blur-md rounded-md shadow-sm">
                           <Sparkles className="h-3 w-3" />
                           High Season Yield
                         </span>

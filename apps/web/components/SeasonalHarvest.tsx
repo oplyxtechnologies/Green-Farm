@@ -22,7 +22,7 @@ export function SeasonalHarvest() {
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-8 pb-12 sm:pb-16 border-b border-slate-200 w-full min-w-0">
           <div className="max-w-3xl space-y-3">
-            <span className="text-xs font-mono font-semibold uppercase tracking-widest text-krishi-brand block">
+            <span className="text-xs font-sans font-semibold uppercase tracking-widest text-krishi-brand block">
               Field Yield Register · Active Cycles
             </span>
             <RevealText
@@ -70,7 +70,7 @@ export function SeasonalHarvest() {
                 className="object-cover"
               />
               <div className="absolute top-4 left-4 z-10 max-w-[calc(100%-2rem)]">
-                <span className="inline-block rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-sans font-semibold uppercase tracking-wider text-slate-900 border border-slate-200 shadow-sm truncate">
+                <span className="inline-flex items-center px-2.5 py-1 text-xs font-medium tracking-tight text-slate-800 bg-white/95 backdrop-blur-md rounded-md border border-slate-200/60 shadow-sm truncate">
                   Protected Polyhouse Harvest
                 </span>
               </div>
@@ -85,12 +85,12 @@ export function SeasonalHarvest() {
                 Vine-Ripened Polyhouse Tomatoes
               </h3>
               <p className="text-slate-600 font-sans text-sm leading-relaxed pt-1">
-                Cultivated inside engineered polyhouse structures with micro-drip fertigation
-                and natural biological pest protection. Hand-harvested in clusters at balanced brix acidity
+                Cultivated inside climate-shielded polyhouse structures with precision drip irrigation
+                and natural biological pest protection. Hand-harvested in clusters at balanced sweetness and acidity
                 for hospitality chains and commercial grocers.
               </p>
               <div className="pt-4 mt-2 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500 font-sans">
-                <span className="font-mono text-slate-800 font-medium break-words">
+                <span className="font-sans text-slate-800 font-medium break-words">
                   Wholesale Crates (20 kg / 50 kg)
                 </span>
                 <Link
@@ -124,7 +124,7 @@ export function SeasonalHarvest() {
                   className="object-cover"
                 />
                 <div className="absolute top-4 left-4 z-10 max-w-[calc(100%-2rem)]">
-                  <span className="inline-block rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-sans font-semibold uppercase tracking-wider text-slate-900 border border-slate-200 shadow-sm truncate">
+                  <span className="inline-flex items-center px-2.5 py-1 text-xs font-medium tracking-tight text-slate-800 bg-white/95 backdrop-blur-md rounded-md border border-slate-200/60 shadow-sm truncate">
                     High-Tunnels · Continuous Cycle
                   </span>
                 </div>
@@ -133,7 +133,7 @@ export function SeasonalHarvest() {
               {/* Card Text Outside Image */}
               <div className="flex flex-col h-auto space-y-2 pt-1 pb-4 min-w-0">
                 <span className="text-[11px] font-sans font-semibold uppercase tracking-widest text-krishi-brand block">
-                  Capsicum annuum · Precision Fertigation
+                  Capsicum annuum · Precision Drip Irrigation
                 </span>
                 <h3 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-snug pb-1">
                   Sweet Crisp Bell Peppers
@@ -144,7 +144,7 @@ export function SeasonalHarvest() {
                   preservation and multi-day commercial distribution.
                 </p>
                 <div className="pt-4 mt-2 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500 font-sans">
-                  <span className="font-mono text-slate-800 font-medium break-words">
+                  <span className="font-sans text-slate-800 font-medium break-words">
                     15 kg Ventilated Dispatch Crates
                   </span>
                   <Link
@@ -176,7 +176,7 @@ export function SeasonalHarvest() {
                   className="object-cover"
                 />
                 <div className="absolute top-4 left-4 z-10 max-w-[calc(100%-2rem)]">
-                  <span className="inline-block rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-sans font-semibold uppercase tracking-wider text-slate-900 border border-slate-200 shadow-sm truncate">
+                  <span className="inline-flex items-center px-2.5 py-1 text-xs font-medium tracking-tight text-slate-800 bg-white/95 backdrop-blur-md rounded-md border border-slate-200/60 shadow-sm truncate">
                     Open-Field Valley Crop
                   </span>
                 </div>
@@ -195,7 +195,7 @@ export function SeasonalHarvest() {
                   soil and aged vermicast impart an unmistakable authentic peppery savor prized by culinary institutions.
                 </p>
                 <div className="pt-4 mt-2 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500 font-sans">
-                  <span className="font-mono text-slate-800 font-medium break-words">
+                  <span className="font-sans text-slate-800 font-medium break-words">
                     Dawn Harvest Dispatch · 04:00 NPT
                   </span>
                   <Link

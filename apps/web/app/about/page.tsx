@@ -30,12 +30,12 @@ const agronomicMilestones = [
   {
     year: "Technological Maturation",
     heading: "Solar Drip Telemetry & Water Conservation",
-    text: "Commissioned automated photovoltaic drip networks. Replaced flood irrigation with root-zone micro-dosing, decreasing groundwater extraction by over 40% while sustaining peak summer vegetable yields.",
+    text: "Commissioned automated photovoltaic drip networks. Replaced flood irrigation with precision drip irrigation, decreasing groundwater extraction by over 40% while sustaining peak summer vegetable yields.",
   },
   {
     year: "Microclimate Protected Culture",
     heading: "Kathmandu Valley Polyhouse Installations",
-    text: "Constructed engineered multi-span polyhouses to shield high-value heirloom crops against monsoon hail and winter radiation frosts, unlocking reliable 12-month commercial harvest cycles.",
+    text: "Constructed climate-shielded polyhouses to shield high-value heirloom crops against monsoon hail and winter radiation frosts, unlocking reliable 12-month commercial harvest cycles.",
   },
   {
     year: "Institutional Stewardship",

@@ -32,13 +32,13 @@ const agronomicPillars = [
   {
     num: "02",
     title: "Precision Solar Drip & Aquifer Protection",
-    desc: "Automated solar-powered drip irrigation delivers root-zone moisture according to transpiration rates, preserving local groundwater tables.",
+    desc: "Automated solar-powered precision drip irrigation delivers measured hydration directly to plant roots, preserving local groundwater tables.",
     icon: Droplets,
   },
   {
     num: "03",
     title: "Microclimate Controlled Polyhouses",
-    desc: "In our Kathmandu Valley installations, multi-span structures temper monsoon deluges and winter morning frosts for steady year-round harvest.",
+    desc: "In our Kathmandu Valley installations, climate-shielded polyhouses temper monsoon deluges and winter morning frosts for steady year-round harvest.",
     icon: SunMedium,
   },
 ];
@@ -137,10 +137,10 @@ export default function HomePage() {
       <section className="bg-krishi-mint text-krishi-mint-text py-8 px-4 sm:px-6 lg:px-8 border-y border-krishi-brand/20 w-full max-w-full overflow-hidden">
         <FadeDriftText className="mx-auto max-w-7xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="space-y-2 max-w-3xl w-full">
-            <div className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 px-3 py-1 rounded-full bg-krishi-mint-text text-krishi-mint text-[10px] sm:text-[11px] font-sans font-semibold uppercase tracking-wider w-fit max-w-full">
+            <div className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 px-2.5 py-1 rounded-md bg-krishi-mint-text text-krishi-mint text-[10px] sm:text-[11px] font-sans font-semibold uppercase tracking-wider w-fit max-w-full">
               <span className="whitespace-nowrap">Seasonal Harvest Notice</span>
               <span className="opacity-60 hidden xs:inline">·</span>
-              <span className="whitespace-nowrap">Direct Farm Allocation</span>
+              <span className="whitespace-nowrap">Same-Day Cold Dispatch</span>
             </div>
             <h3 className="font-heading text-xl sm:text-2xl font-bold leading-tight">
               Pre-Monsoon &amp; Highland Harvest Supply Agreements Now Open

@@ -61,7 +61,7 @@ const fallbackNews: News[] = [
     excerpt:
       "Sub-zero ground inversions in the Kathmandu Valley challenge winter vegetables. Here is how geothermal earth tubes maintain stable root temperatures.",
     content:
-      "Rather than relying on expensive, carbon-heavy diesel heaters, our Kathmandu Valley multi-span polyhouses circulate underground ambient air through sub-surface earth tubes. Even when exterior pre-dawn temperatures drop to 2°C, internal canopy air remains at a steady 12°C, protecting delicate tomato and pepper blossoms from cold shock.",
+      "Rather than relying on expensive, carbon-heavy diesel heaters, our Kathmandu Valley climate-shielded polyhouses circulate underground ambient air through sub-surface earth tubes. Even when exterior pre-dawn temperatures drop to 2°C, internal canopy air remains at a steady 12°C, protecting delicate tomato and pepper blossoms from cold shock.",
     cover_image: PEXELS_ASSETS.terroir.polyhouse.url,
     author: "Sujan Karki · Polyhouse Systems Lead",
     published_at: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000).toISOString(),
@@ -156,7 +156,7 @@ export default async function NewsPage() {
                     imageClassName="object-cover"
                   />
                   <div className="absolute top-4 left-4 z-10">
-                    <span className="rounded-full bg-slate-900/90 backdrop-blur-md px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-krishi-cream">
+                    <span className="inline-flex items-center px-2.5 py-1 text-xs font-medium tracking-tight text-slate-200 bg-slate-900/90 backdrop-blur-md rounded-md shadow-sm">
                       Lead Dispatch
                     </span>
                   </div>
@@ -265,7 +265,7 @@ export default async function NewsPage() {
                         className="object-cover transition-transform duration-500 hover:scale-105"
                       />
                       <div className="absolute top-3 left-3 z-10">
-                        <span className="rounded-full bg-white/90 backdrop-blur-md px-3 py-0.5 text-xs font-semibold uppercase tracking-wider text-slate-900 border border-slate-200">
+                        <span className="inline-flex items-center px-2.5 py-1 text-xs font-medium tracking-tight text-slate-800 bg-white/95 backdrop-blur-md rounded-md border border-slate-200/60 shadow-sm">
                           Chronicle № {idx + 2}
                         </span>
                       </div>

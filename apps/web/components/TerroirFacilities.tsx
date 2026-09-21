@@ -18,7 +18,7 @@ export function TerroirFacilities() {
       <div className="mx-auto max-w-7xl space-y-20 lg:space-y-32 w-full min-w-0">
         {/* Section Lead / Kicker */}
         <div className="max-w-3xl space-y-3">
-          <span className="text-xs font-mono font-semibold uppercase tracking-widest text-krishi-brand block">
+          <span className="text-xs font-sans font-semibold uppercase tracking-widest text-krishi-brand block">
             Agronomic Terroir &amp; Infrastructure
           </span>
           <RevealText
@@ -39,9 +39,9 @@ export function TerroirFacilities() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Text Column (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-mono uppercase tracking-wider font-semibold shadow-crisp-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-krishi-brand animate-pulse" />
-              <span>Kathmandu Valley · 1,400m ASL</span>
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-krishi-forest">
+              <span className="h-1.5 w-1.5 rounded-full bg-krishi-forest" />
+              <span>Kathmandu Valley · 1,400m Elevation</span>
             </div>
 
             <RevealText
@@ -53,27 +53,27 @@ export function TerroirFacilities() {
             </RevealText>
 
             <p className="text-slate-600 font-sans text-sm sm:text-base leading-relaxed">
-              Our multi-span engineered polyhouses temper extreme monsoon cloudbursts, hail,
-              and winter radiation frosts. Utilizing automated sensor telemetry and micro-drip
-              fertigation, each structure operates as a calibrated microclimate.
+              Our climate-shielded polyhouses temper extreme monsoon cloudbursts, hail,
+              and winter radiation frosts. Utilizing automated precision drip irrigation and
+              calibrated ventilation, each structure operates as a protected growing environment.
             </p>
 
             <p className="text-slate-600 font-sans text-sm leading-relaxed">
-              This controlled environment eliminates chemical pesticide requirements through
-              biological integrated pest management (predatory insects and neem emulsions),
+              This controlled environment eliminates synthetic pesticide requirements through
+              zero synthetic pesticides, beneficial insects, and organic neem emulsions,
               delivering pristine vine tomatoes, capsicums, and heirloom varieties out of season.
             </p>
 
             {/* Agronomic Feature Badges */}
-            <div className="pt-2 flex flex-wrap gap-2 text-xs font-mono">
-              <span className="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-800 font-medium">
-                Multi-Span Polycarbonate
+            <div className="pt-2 flex flex-wrap gap-2">
+              <span className="inline-flex items-center px-2.5 py-1 text-xs font-medium tracking-tight text-slate-700 bg-slate-100 rounded-md">
+                Climate-Shielded Polyhouses
               </span>
-              <span className="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-800 font-medium">
-                Root-Zone Fertigation
+              <span className="inline-flex items-center px-2.5 py-1 text-xs font-medium tracking-tight text-slate-700 bg-slate-100 rounded-md">
+                Precision Drip Irrigation
               </span>
-              <span className="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-800 font-medium">
-                Biological IPM Protection
+              <span className="inline-flex items-center px-2.5 py-1 text-xs font-medium tracking-tight text-slate-700 bg-slate-100 rounded-md">
+                Zero Synthetic Pesticides
               </span>
             </div>
 
@@ -104,7 +104,7 @@ export function TerroirFacilities() {
                 imageClassName="object-cover"
               />
               <div className="absolute top-4 left-4 z-10">
-                <span className="rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-sans font-semibold uppercase tracking-wider text-slate-900 border border-slate-200 shadow-sm">
+                <span className="inline-flex items-center px-2.5 py-1 text-xs font-medium tracking-tight text-slate-800 bg-white/95 backdrop-blur-md rounded-md border border-slate-200/60 shadow-sm">
                   Protected Culture · Polyhouse Method
                 </span>
               </div>
@@ -129,7 +129,7 @@ export function TerroirFacilities() {
                 imageClassName="object-cover"
               />
               <div className="absolute top-4 left-4 z-10">
-                <span className="rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-sans font-semibold uppercase tracking-wider text-slate-900 border border-slate-200 shadow-sm">
+                <span className="inline-flex items-center px-2.5 py-1 text-xs font-medium tracking-tight text-slate-800 bg-white/95 backdrop-blur-md rounded-md border border-slate-200/60 shadow-sm">
                   Alluvial Valley Basin · River-Irrigated Plot
                 </span>
               </div>
@@ -138,8 +138,8 @@ export function TerroirFacilities() {
 
           {/* Text Column (5 cols, offset by 1) */}
           <div className="lg:col-span-5 lg:col-start-8 space-y-6 order-1 lg:order-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-sans uppercase tracking-wider font-semibold shadow-crisp-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-krishi-brand animate-pulse" />
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-krishi-forest">
+              <span className="h-1.5 w-1.5 rounded-full bg-krishi-forest" />
               <span>Surkhet Valley Basin · Birendranagar</span>
             </div>
 
@@ -154,7 +154,7 @@ export function TerroirFacilities() {
             <p className="text-slate-600 font-sans text-sm sm:text-base leading-relaxed">
               In the fertile river basin of Surkhet, our open agricultural plots leverage
               nutrient-rich alluvial loam. Powered by high-efficiency solar pumping and
-              sub-surface drip lines, we deliver root-zone micro-dosing directly matched to crop transpiration.
+              precision drip lines, we deliver measured hydration directly matched to crop needs.
             </p>
 
             <p className="text-slate-600 font-sans text-sm leading-relaxed">
@@ -164,15 +164,15 @@ export function TerroirFacilities() {
             </p>
 
             {/* Agronomic Feature Badges */}
-            <div className="pt-2 flex flex-wrap gap-2 text-xs font-sans">
-              <span className="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-800 font-medium">
+            <div className="pt-2 flex flex-wrap gap-2">
+              <span className="inline-flex items-center px-2.5 py-1 text-xs font-medium tracking-tight text-slate-700 bg-slate-100 rounded-md">
                 Solar-Powered Drip Network
               </span>
-              <span className="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-800 font-medium">
+              <span className="inline-flex items-center px-2.5 py-1 text-xs font-medium tracking-tight text-slate-700 bg-slate-100 rounded-md">
                 Alluvial Silt Regeneration
               </span>
-              <span className="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-800 font-medium">
-                Natural Soil Leaching Prevention
+              <span className="inline-flex items-center px-2.5 py-1 text-xs font-medium tracking-tight text-slate-700 bg-slate-100 rounded-md">
+                Natural Soil Conservation
               </span>
             </div>
 

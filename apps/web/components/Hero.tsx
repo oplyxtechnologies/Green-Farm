@@ -3,6 +3,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { RevealText } from "./animations/RevealText";
 import { PEXELS_ASSETS } from "../lib/pexels";
 
@@ -86,17 +87,17 @@ export function Hero() {
 
         {/* Right Column (lg:col-span-4): Primary CTA and operational metadata */}
         <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-end gap-6">
-          {/* Operational Metadata */}
-          <div className="flex flex-col text-left lg:text-right space-y-1.5 border-l-2 lg:border-l-0 lg:border-r-2 border-krishi-mint/40 pl-4 lg:pl-0 lg:pr-4">
-            <span className="font-sans text-[11px] uppercase tracking-widest text-krishi-mint font-semibold">
+          {/* Clean Minimalist Operational Dispatch Card */}
+          <div className="border-l-2 border-krishi-mint/40 pl-4 py-1 text-left">
+            <span className="block text-[11px] font-semibold tracking-widest text-krishi-mint uppercase">
               Daily Wholesale Dispatch
             </span>
-            <p className="text-xs text-slate-300 font-sans">
+            <p className="text-sm font-medium text-slate-200 mt-0.5">
               04:00 – 12:00 NPT · Surkhet &amp; Kathmandu Hubs
             </p>
-            <span className="text-[10px] text-slate-400 font-sans">
-              Direct Farm Allocation · Chemical-Free Produce
-            </span>
+            <p className="text-xs text-slate-400 mt-0.5">
+              Harvested at dawn · Same-day cold dispatch
+            </p>
           </div>
 
           {/* CTA Button */}
@@ -105,7 +106,8 @@ export function Hero() {
             prefetch={true}
             className="inline-flex items-center justify-center bg-krishi-mint text-krishi-mint-text rounded-full px-8 py-4 font-sans font-semibold hover:bg-white transition-colors duration-300 shadow-crisp-md group"
           >
-            <span>Explore Harvest Catalog →</span>
+            Explore Harvest Catalog
+            <ArrowRight aria-hidden="true" className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
         </div>
       </div>

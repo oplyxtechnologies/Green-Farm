@@ -27,7 +27,7 @@ const openRoles = [
     station: "Kathmandu Valley Polyhouse Complex",
     type: "Full-time Agronomic Lead",
     responsibilities:
-      "Oversee microclimate conditions, bio-control IPM (predatory insects), and organic fertigation schedules across multi-span protected vegetable structures.",
+      "Oversee microclimate conditions, biological pest management (beneficial insects), and precision drip irrigation schedules across climate-shielded polyhouses.",
     qualifications: "B.Sc. or M.Sc. in Agronomy / Horticulture with field greenhouse experience.",
   },
   {
@@ -93,14 +93,14 @@ export default function CareersPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
             <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 text-white z-10">
               <div>
-                <FadeDriftText as="span" className="text-[11px] font-mono font-semibold uppercase tracking-widest text-krishi-mint block">
+                <FadeDriftText as="span" className="text-[11px] font-sans font-semibold uppercase tracking-widest text-krishi-mint block">
                   On-Site Agronomy Culture
                 </FadeDriftText>
                 <p className="font-heading text-lg sm:text-2xl font-bold">
                   Surkhet Valley &amp; Kathmandu Facilities
                 </p>
               </div>
-              <span className="rounded-full bg-white/90 backdrop-blur-md px-3.5 py-1 text-xs font-semibold uppercase tracking-wider text-slate-900 border border-slate-200 shadow-sm">
+              <span className="inline-flex items-center px-2.5 py-1 text-xs font-medium tracking-tight text-slate-800 bg-white/95 backdrop-blur-md rounded-md border border-slate-200/60 shadow-sm">
                 Active Stations · 2026
               </span>
             </div>
@@ -133,7 +133,7 @@ export default function CareersPage() {
                 Advanced Precision Ag-Tech
               </h3>
               <p className="font-sans text-xs text-slate-600 leading-relaxed">
-                Hands-on daily mentorship in multi-span climate computer systems, solar drip
+                Hands-on daily mentorship in climate-shielded polyhouse systems, solar drip
                 automation, and biological microbial soil formulation.
               </p>
             </FadeDriftText>
