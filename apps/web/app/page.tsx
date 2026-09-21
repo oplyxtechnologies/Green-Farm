@@ -133,13 +133,13 @@ export default function HomePage() {
       </section>
 
       {/* High-Impact Harvest Advisory Banner (bg-krishi-mint & text-krishi-mint-text) */}
-      <section className="bg-krishi-mint text-krishi-mint-text py-8 px-4 sm:px-6 lg:px-8 border-y border-krishi-brand/20">
+      <section className="bg-krishi-mint text-krishi-mint-text py-8 px-4 sm:px-6 lg:px-8 border-y border-krishi-brand/20 w-full max-w-full overflow-hidden">
         <FadeDriftText className="mx-auto max-w-7xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div className="space-y-1.5 max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-krishi-mint-text text-krishi-mint text-[11px] font-sans font-semibold uppercase tracking-wider">
-              <span>Seasonal Harvest Notice</span>
-              <span>·</span>
-              <span>Direct Farm Allocation</span>
+          <div className="space-y-2 max-w-3xl w-full">
+            <div className="inline-flex flex-wrap items-center gap-x-2 gap-y-1 px-3 py-1 rounded-full bg-krishi-mint-text text-krishi-mint text-[10px] sm:text-[11px] font-sans font-semibold uppercase tracking-wider w-fit max-w-full">
+              <span className="whitespace-nowrap">Seasonal Harvest Notice</span>
+              <span className="opacity-60 hidden xs:inline">·</span>
+              <span className="whitespace-nowrap">Direct Farm Allocation</span>
             </div>
             <h3 className="font-heading text-xl sm:text-2xl font-bold leading-tight">
               Pre-Monsoon &amp; Highland Harvest Supply Agreements Now Open
@@ -149,14 +149,14 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="shrink-0">
-            <MagneticButton>
+          <div className="shrink-0 w-full sm:w-auto pt-1 sm:pt-0">
+            <MagneticButton className="w-full sm:w-auto">
               <Link
                 href="/contact?subject=Commercial Supply Contract"
-                className="inline-flex items-center gap-2 rounded-full bg-krishi-mint-text px-6 py-3 font-sans text-xs font-bold text-krishi-mint hover:bg-black transition-colors shadow-sm"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-krishi-mint-text px-6 py-3 font-sans text-xs font-bold text-krishi-mint hover:bg-black transition-colors shadow-sm text-center"
               >
                 <span>Reserve Harvest Allocation</span>
-                <ArrowRight className="h-3.5 w-3.5 text-krishi-mint" />
+                <ArrowRight className="h-3.5 w-3.5 text-krishi-mint shrink-0" />
               </Link>
             </MagneticButton>
           </div>
@@ -164,9 +164,9 @@ export default function HomePage() {
       </section>
 
       {/* 5. Commercial Procurement & Logistics Section */}
-      <section className="py-20 border-t border-slate-200 bg-slate-50">
+      <section className="py-16 sm:py-20 border-t border-slate-200 bg-slate-50 w-full max-w-full overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <FadeDriftText triggerStart="top 85%" className="rounded-3xl border border-slate-800 bg-slate-900 p-8 sm:p-14 text-slate-100 shadow-crisp-lg">
+          <FadeDriftText triggerStart="top 85%" className="rounded-2xl sm:rounded-3xl border border-slate-800 bg-slate-900 p-6 sm:p-10 lg:p-14 text-slate-100 shadow-crisp-lg w-full">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-8 space-y-4">
                 <span className="text-xs font-semibold uppercase tracking-wider text-krishi-mint block">
@@ -174,7 +174,7 @@ export default function HomePage() {
                 </span>
                 <RevealText
                   as="h3"
-                  className="font-heading text-2xl sm:text-4xl text-white font-bold leading-tight"
+                  className="font-heading text-xl sm:text-3xl lg:text-4xl text-white font-bold leading-tight"
                   triggerStart="top 85%"
                 >
                   Reliable tonnage, fixed seasonal schedules, and uncompromised organic integrity.
@@ -185,19 +185,19 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3">
-                <MagneticButton>
+              <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3 w-full">
+                <MagneticButton className="w-full">
                   <Link
                     href="/contact"
-                    className="inline-flex w-full items-center justify-center font-sans text-xs font-semibold px-6 py-3.5 rounded-full bg-krishi-brand text-white hover:bg-krishi-forest transition-colors shadow-crisp-sm"
+                    className="inline-flex w-full items-center justify-center font-sans text-xs font-semibold px-6 py-3.5 rounded-full bg-krishi-brand text-white hover:bg-krishi-forest transition-colors shadow-crisp-sm text-center"
                   >
                     Initiate Wholesale Procurement
                   </Link>
                 </MagneticButton>
-                <MagneticButton strength={0.2}>
+                <MagneticButton strength={0.2} className="w-full">
                   <Link
                     href="/produce"
-                    className="inline-flex w-full items-center justify-center text-[11px] font-semibold uppercase tracking-wider px-6 py-3.5 rounded-full border border-slate-700 text-slate-200 hover:bg-slate-800 transition-colors"
+                    className="inline-flex w-full items-center justify-center text-[11px] font-semibold uppercase tracking-wider px-6 py-3.5 rounded-full border border-slate-700 text-slate-200 hover:bg-slate-800 transition-colors text-center"
                   >
                     Browse Full Harvest Specifications
                   </Link>
