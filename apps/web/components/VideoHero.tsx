@@ -107,7 +107,7 @@ export function VideoHero() {
             className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-krishi-cream -mb-2.5"
           >
             <Compass className="h-3.5 w-3.5 text-krishi-cream" />
-            <span>Surkhet &amp; Kathmand Valley · Est. Commercial Farm</span>
+            <span>Surkhet &amp; Kathmandu Valley · Est. Commercial Farm</span>
           </div>
 
           {/* Crisp Heading */}
