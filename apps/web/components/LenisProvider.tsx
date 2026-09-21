@@ -17,19 +17,25 @@ if (typeof window !== "undefined") {
 
 function ScrollTriggerSync() {
   const pathname = usePathname();
+  const lenis = useLenis();
 
   useLenis(() => {
     ScrollTrigger.update();
   });
 
   useEffect(() => {
+    // Snap to top immediately on route change without a smooth animation
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true });
+    }
+
     // Refresh ScrollTrigger calculations after route transition & layout rendering
     const timer = setTimeout(() => {
       ScrollTrigger.refresh();
     }, 150);
 
     return () => clearTimeout(timer);
-  }, [pathname]);
+  }, [pathname, lenis]);
 
   return null;
 }
