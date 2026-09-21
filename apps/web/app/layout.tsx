@@ -45,6 +45,21 @@ export const metadata: Metadata = {
     description:
       "Cultivating quality, sustainability, and fresh agricultural produce across Nepal.",
     siteName: "Green Nepal Agricultural Farm",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Green Nepal Agricultural Farm - Commercial Organic Agriculture in Nepal",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Green Nepal Agricultural Farm | Commercial Organic Agriculture in Nepal",
+    description:
+      "Leading commercial agricultural enterprise in Nepal specializing in high-yield organic crops, sustainable polyhouse cultivation, and empowering local farming communities.",
+    images: ["/og-image.jpg"],
   },
   icons: {
     icon: "/favicon.svg",
