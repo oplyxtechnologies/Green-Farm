@@ -52,7 +52,7 @@ export function StaggeredLineReveal({
     () => {
       if (!containerRef.current) return;
 
-      const targets = containerRef.current.querySelectorAll(".stagger-line-word");
+      const targets = gsap.utils.toArray<HTMLElement>(".stagger-line-word", containerRef.current);
       if (!targets.length) return;
 
       gsap.fromTo(
@@ -91,16 +91,20 @@ export function StaggeredLineReveal({
       ref={containerRef as any}
       className={`relative w-full min-w-0 ${className}`}
     >
-      {words.map((word, i) => (
-        <span
-          key={i}
-          className="inline-block overflow-hidden align-top pb-[0.18em] -mb-[0.18em] mr-[0.28em] will-change-transform"
-        >
-          <span className="stagger-line-word inline-block will-change-transform">
-            {word}
+      {words.length > 0 ? (
+        words.map((word, i) => (
+          <span
+            key={`${word}-${i}`}
+            className="inline-block overflow-hidden align-top pb-[0.22em] -mb-[0.22em] mr-[0.28em] will-change-transform"
+          >
+            <span className="stagger-line-word inline-block will-change-transform">
+              {word}
+            </span>
           </span>
-        </span>
-      ))}
+        ))
+      ) : (
+        children
+      )}
     </Component>
   );
 }

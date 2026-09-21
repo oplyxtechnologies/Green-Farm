@@ -95,6 +95,7 @@ export function TerroirFacilities() {
                 src={PEXELS_ASSETS.terroir.polyhouse.url}
                 alt={PEXELS_ASSETS.terroir.polyhouse.alt}
                 fill
+                priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 direction="right"
                 scaleImage

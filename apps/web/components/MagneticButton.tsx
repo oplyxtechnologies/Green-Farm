@@ -5,8 +5,9 @@
  * slop test: pass / all-gates-cleared
  */
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 interface MagneticButtonProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
@@ -23,47 +24,52 @@ export function MagneticButton({
 }: MagneticButtonProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
+  useGSAP(
+    () => {
+      const el = containerRef.current;
+      if (!el) return;
 
-    // Skip on touch-only devices to avoid sticky hover states
-    const isTouch = window.matchMedia("(pointer: coarse)").matches;
-    if (isTouch) return;
+      // Skip on touch-only devices to avoid sticky hover states
+      if (typeof window !== "undefined") {
+        const isTouch = window.matchMedia("(pointer: coarse)").matches;
+        if (isTouch) return;
+      }
 
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = el.getBoundingClientRect();
-      const relX = e.clientX - (rect.left + rect.width / 2);
-      const relY = e.clientY - (rect.top + rect.height / 2);
+      const handleMouseMove = (e: MouseEvent) => {
+        const rect = el.getBoundingClientRect();
+        const relX = e.clientX - (rect.left + rect.width / 2);
+        const relY = e.clientY - (rect.top + rect.height / 2);
 
-      gsap.to(el, {
-        x: relX * strength,
-        y: relY * strength,
-        duration: 0.35,
-        ease: "power2.out",
-        overwrite: "auto",
-      });
-    };
+        gsap.to(el, {
+          x: relX * strength,
+          y: relY * strength,
+          duration: 0.35,
+          ease: "power2.out",
+          overwrite: "auto",
+        });
+      };
 
-    const handleMouseLeave = () => {
-      gsap.to(el, {
-        x: 0,
-        y: 0,
-        duration: 0.65,
-        ease: "elastic.out(1, 0.35)",
-        overwrite: "auto",
-      });
-    };
+      const handleMouseLeave = () => {
+        gsap.to(el, {
+          x: 0,
+          y: 0,
+          duration: 0.65,
+          ease: "elastic.out(1, 0.35)",
+          overwrite: "auto",
+        });
+      };
 
-    el.addEventListener("mousemove", handleMouseMove);
-    el.addEventListener("mouseleave", handleMouseLeave);
+      el.addEventListener("mousemove", handleMouseMove);
+      el.addEventListener("mouseleave", handleMouseLeave);
 
-    return () => {
-      el.removeEventListener("mousemove", handleMouseMove);
-      el.removeEventListener("mouseleave", handleMouseLeave);
-      gsap.killTweensOf(el);
-    };
-  }, [strength]);
+      return () => {
+        el.removeEventListener("mousemove", handleMouseMove);
+        el.removeEventListener("mouseleave", handleMouseLeave);
+        gsap.killTweensOf(el);
+      };
+    },
+    { scope: containerRef, dependencies: [strength] }
+  );
 
   return (
     <div

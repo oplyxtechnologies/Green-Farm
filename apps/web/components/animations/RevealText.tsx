@@ -54,9 +54,8 @@ export function RevealText({
     () => {
       if (!containerRef.current) return;
 
-      const targets = splitWords
-        ? containerRef.current.querySelectorAll(".reveal-word")
-        : containerRef.current.querySelectorAll(".reveal-block");
+      const selector = splitWords ? ".reveal-word" : ".reveal-block";
+      const targets = gsap.utils.toArray<HTMLElement>(selector, containerRef.current);
 
       if (!targets.length) return;
 
@@ -85,7 +84,7 @@ export function RevealText({
     },
     {
       scope: containerRef,
-      dependencies: [children, delay, stagger, duration, ease, splitWords, scrollTrigger],
+      dependencies: [children, delay, stagger, duration, ease, splitWords, scrollTrigger, triggerStart],
     }
   );
 
@@ -93,16 +92,16 @@ export function RevealText({
 
   return (
     <Component ref={containerRef as any} className={`relative max-w-full ${className}`}>
-      {splitWords ? (
+      {splitWords && words.length > 0 ? (
         words.map((word, i) => (
-          <React.Fragment key={i}>
-            <span className="inline-block overflow-hidden align-top pb-[0.25em] -mb-[0.25em] max-w-full">
-              <span className="reveal-word inline-block will-change-transform max-w-full break-words">
-                {word}
-              </span>
+          <span
+            key={`${word}-${i}`}
+            className="inline-block overflow-hidden align-top pb-[0.25em] -mb-[0.25em] mr-[0.28em] max-w-full"
+          >
+            <span className="reveal-word inline-block will-change-transform max-w-full break-words">
+              {word}
             </span>
-            {i < words.length - 1 && " "}
-          </React.Fragment>
+          </span>
         ))
       ) : (
         <span className="inline-block overflow-hidden w-full align-top pb-[0.25em] -mb-[0.25em]">

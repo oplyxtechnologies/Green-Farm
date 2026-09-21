@@ -268,6 +268,7 @@ export default async function ProducePage() {
                       }
                       alt={item.title}
                       fill
+                      priority={index === 0}
                       sizes="(max-width: 1024px) 100vw, 60vw"
                       className="object-cover transition-transform duration-700 ease-out hover:scale-105"
                     />

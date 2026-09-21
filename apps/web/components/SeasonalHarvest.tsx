@@ -65,6 +65,7 @@ export function SeasonalHarvest() {
                 src={PEXELS_ASSETS.crops.tomatoes.url}
                 alt={PEXELS_ASSETS.crops.tomatoes.alt}
                 fill
+                priority
                 sizes="(max-width: 1024px) 100vw, 42vw"
                 className="object-cover"
               />
