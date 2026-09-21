@@ -87,6 +87,7 @@ export default function HomePage() {
               <div className="pt-4">
                 <Link
                   href="/about"
+                  prefetch={true}
                   className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 hover:text-krishi-brand border-b border-slate-300 pb-0.5"
                 >
                   Read our full agricultural manifesto
@@ -153,6 +154,7 @@ export default function HomePage() {
             <MagneticButton className="w-full sm:w-auto">
               <Link
                 href="/contact?subject=Commercial Supply Contract"
+                prefetch={true}
                 className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-krishi-mint-text px-6 py-3 font-sans text-xs font-bold text-krishi-mint hover:bg-black transition-colors shadow-sm text-center"
               >
                 <span>Reserve Harvest Allocation</span>
@@ -189,6 +191,7 @@ export default function HomePage() {
                 <MagneticButton className="w-full">
                   <Link
                     href="/contact"
+                    prefetch={true}
                     className="inline-flex w-full items-center justify-center font-sans text-xs font-semibold px-6 py-3.5 rounded-full bg-krishi-brand text-white hover:bg-krishi-forest transition-colors shadow-crisp-sm text-center"
                   >
                     Initiate Wholesale Procurement
@@ -197,6 +200,7 @@ export default function HomePage() {
                 <MagneticButton strength={0.2} className="w-full">
                   <Link
                     href="/produce"
+                    prefetch={true}
                     className="inline-flex w-full items-center justify-center text-[11px] font-semibold uppercase tracking-wider px-6 py-3.5 rounded-full border border-slate-700 text-slate-200 hover:bg-slate-800 transition-colors text-center"
                   >
                     Browse Full Harvest Specifications

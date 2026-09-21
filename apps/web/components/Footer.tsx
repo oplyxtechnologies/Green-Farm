@@ -76,22 +76,22 @@ export function Footer() {
             </h4>
             <ul className="space-y-2 text-slate-400">
               <li>
-                <Link href="/about" className="hover:text-krishi-cream transition-colors">
+                <Link href="/about" prefetch={true} className="hover:text-krishi-cream transition-colors">
                   Our Terroir &amp; Farming Methods
                 </Link>
               </li>
               <li>
-                <Link href="/produce" className="hover:text-krishi-cream transition-colors">
+                <Link href="/produce" prefetch={true} className="hover:text-krishi-cream transition-colors">
                   Current Seasonal Harvest
                 </Link>
               </li>
               <li>
-                <Link href="/news" className="hover:text-krishi-cream transition-colors">
+                <Link href="/news" prefetch={true} className="hover:text-krishi-cream transition-colors">
                   Field Journal &amp; Agronomy Updates
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="hover:text-krishi-cream transition-colors">
+                <Link href="/careers" prefetch={true} className="hover:text-krishi-cream transition-colors">
                   Agronomy Careers &amp; Operations
                 </Link>
               </li>

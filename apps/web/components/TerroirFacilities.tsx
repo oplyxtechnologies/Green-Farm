@@ -80,6 +80,7 @@ export function TerroirFacilities() {
             <div className="pt-4">
               <Link
                 href="/about"
+                prefetch={true}
                 className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 hover:text-krishi-brand border-b border-slate-300 pb-0.5 transition-colors"
               >
                 <span>Examine Polyhouse Telemetry</span>
@@ -179,6 +180,7 @@ export function TerroirFacilities() {
             <div className="pt-4">
               <Link
                 href="/about"
+                prefetch={true}
                 className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 hover:text-krishi-brand border-b border-slate-300 pb-0.5 transition-colors"
               >
                 <span>Read Soil Microbiology Report</span>

@@ -76,6 +76,7 @@ export function Hero() {
           {/* CTA Button */}
           <Link
             href="/produce"
+            prefetch={true}
             className="inline-flex items-center justify-center bg-krishi-mint text-krishi-mint-text rounded-full px-8 py-4 font-sans font-semibold hover:bg-white transition-colors duration-300 shadow-crisp-md group"
           >
             <span>Explore Harvest Catalog →</span>

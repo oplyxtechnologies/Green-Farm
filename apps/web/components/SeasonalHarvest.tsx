@@ -42,6 +42,7 @@ export function SeasonalHarvest() {
           <div className="shrink-0 pt-2 lg:pt-0">
             <Link
               href="/produce"
+              prefetch={true}
               className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-5 sm:px-6 py-3 sm:py-3.5 text-xs font-semibold uppercase tracking-wider text-slate-800 hover:border-krishi-brand hover:text-krishi-brand transition-all duration-300 shadow-crisp-sm group"
             >
               <span>Explore Complete Register</span>
@@ -95,6 +96,7 @@ export function SeasonalHarvest() {
                 </span>
                 <Link
                   href="/produce"
+                  prefetch={true}
                   className="text-krishi-brand hover:text-krishi-forest font-semibold inline-flex items-center gap-1 transition-colors shrink-0"
                 >
                   <span>Botanical Specs</span>
@@ -148,6 +150,7 @@ export function SeasonalHarvest() {
                   </span>
                   <Link
                     href="/produce"
+                    prefetch={true}
                     className="text-krishi-brand hover:text-krishi-forest font-semibold inline-flex items-center gap-1 transition-colors shrink-0"
                   >
                     <span>Botanical Specs</span>
@@ -198,6 +201,7 @@ export function SeasonalHarvest() {
                   </span>
                   <Link
                     href="/produce"
+                    prefetch={true}
                     className="text-krishi-brand hover:text-krishi-forest font-semibold inline-flex items-center gap-1 transition-colors shrink-0"
                   >
                     <span>Botanical Specs</span>
