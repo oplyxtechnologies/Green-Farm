@@ -20,11 +20,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_WEB_URL || "http://localhost:3000"),
   title: {
-    default: "Green Nepal Agricultural Farm | Commercial Organic Agriculture in Nepal",
+    default: "Green Nepal Agricultural Farm | Organic Agriculture",
     template: "%s | Green Nepal Agricultural Farm",
   },
   description:
-    "Leading commercial agricultural enterprise in Nepal specializing in high-yield organic crops, sustainable polyhouse cultivation, and empowering local farming communities.",
+    "Leading organic agriculture in Nepal specializing in high-yield crops, polyhouse cultivation, and empowering local farming communities.",
   keywords: [
     "Green Nepal Agricultural Farm",
     "Nepal Agriculture",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://greennepalkrishi.com",
-    title: "Green Nepal Agricultural Farm | Commercial Organic Agriculture",
+    title: "Green Nepal Agricultural Farm | Organic Agriculture",
     description:
       "Cultivating quality, sustainability, and fresh agricultural produce across Nepal.",
     siteName: "Green Nepal Agricultural Farm",
@@ -56,9 +56,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Green Nepal Agricultural Farm | Commercial Organic Agriculture in Nepal",
+    title: "Green Nepal Agricultural Farm | Organic Agriculture",
     description:
-      "Leading commercial agricultural enterprise in Nepal specializing in high-yield organic crops, sustainable polyhouse cultivation, and empowering local farming communities.",
+      "Leading organic agriculture in Nepal specializing in high-yield crops, polyhouse cultivation, and empowering local farming communities.",
     images: ["/og-image.jpg"],
   },
   icons: {

@@ -19,9 +19,9 @@ import {
 } from "../../components/animations";
 
 export const metadata: Metadata = {
-  title: "Seasonal Harvest Register & Produce Catalog | Green Nepal Agricultural Farm",
+  title: "Seasonal Harvest Register",
   description:
-    "Explore our botanical harvest catalog of sustainably cultivated crops, grains, and fruits from our fertile Surkhet Valley fields and high-altitude Himalayan orchards.",
+    "Explore our botanical harvest catalog of organic crops, grains, and fruits from our Surkhet Valley fields and high-altitude Himalayan orchards.",
 };
 
 interface BotanicalDetails {

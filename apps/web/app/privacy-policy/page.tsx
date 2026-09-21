@@ -9,7 +9,7 @@ import { ArrowLeft } from "lucide-react";
 import { RevealText, FadeDriftText } from "../../components/animations";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy & Data Security | Green Nepal Agricultural Farm",
+  title: "Privacy Policy",
   description: "Privacy policy and client data handling protocol for Green Nepal Agricultural Farm.",
 };
 

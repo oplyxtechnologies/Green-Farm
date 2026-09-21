@@ -9,7 +9,7 @@ import { ArrowLeft } from "lucide-react";
 import { RevealText, FadeDriftText } from "../../components/animations";
 
 export const metadata: Metadata = {
-  title: "Commercial Terms & Conditions | Green Nepal Agricultural Farm",
+  title: "Terms and Conditions",
   description: "Terms and conditions governing agricultural supply agreements and platform usage.",
 };
 

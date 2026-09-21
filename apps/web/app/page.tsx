@@ -17,9 +17,9 @@ import {
 } from "../components/animations";
 
 export const metadata: Metadata = {
-  title: "Green Nepal Agricultural Farm | Commercial Organic Agriculture",
+  title: "Green Nepal Agricultural Farm | Organic Agriculture",
   description:
-    "Commercial organic agriculture, sustainable polyhouse cultivation, and wholesale agricultural produce in Birendranagar, Surkhet and Kathmandu, Nepal.",
+    "Commercial organic agriculture, sustainable polyhouse cultivation, and wholesale produce in Birendranagar, Surkhet and Kathmandu, Nepal.",
 };
 
 const agronomicPillars = [

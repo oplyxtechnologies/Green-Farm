@@ -13,9 +13,9 @@ import {
 } from "../../components/animations";
 
 export const metadata: Metadata = {
-  title: "Procurement Desk & Contact | Green Nepal Agricultural Farm",
+  title: "Procurement Desk",
   description:
-    "Connect with the Green Nepal Agricultural Farm harvest dispatch desk for commercial wholesale supply agreements, seasonal allocations, and agricultural partnerships.",
+    "Connect with our harvest dispatch desk for commercial wholesale supply agreements, seasonal allocations, and agricultural partnerships in Nepal.",
 };
 
 export default function ContactPage() {

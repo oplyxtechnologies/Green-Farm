@@ -16,7 +16,7 @@ import {
 } from "../../components/animations";
 
 export const metadata: Metadata = {
-  title: "Agricultural Careers & Field Opportunities | Green Nepal Agricultural Farm",
+  title: "Careers and Opportunities",
   description:
     "Join the agronomy, irrigation engineering, and farm management teams at Green Nepal Agricultural Farm across Birendranagar, Surkhet and Kathmandu.",
 };

@@ -16,9 +16,9 @@ import {
 } from "../../components/animations";
 
 export const metadata: Metadata = {
-  title: "Our Terroir & Agronomic Philosophy | Green Nepal Agricultural Farm",
+  title: "Terroir and Philosophy",
   description:
-    "Learn about Green Nepal Agricultural Farm's commitment to commercial-scale organic agriculture, regenerative soil vitality, and local rural empowerment across Nepal.",
+    "Discover Green Nepal Agricultural Farm's commitment to commercial organic agriculture, regenerative soil vitality, and empowering rural Nepal.",
 };
 
 const agronomicMilestones = [
