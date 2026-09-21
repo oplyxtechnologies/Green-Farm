@@ -141,7 +141,7 @@ export function ContactForm() {
           </label>
           <input
             type="tel"
-            placeholder="+977 98XXXXXXXX"
+            placeholder="+977 9851023456"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             className="w-full rounded-xl border border-slate-300 bg-slate-50/50 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-krishi-brand focus:outline-none focus:ring-1 focus:ring-krishi-brand font-sans transition-colors"

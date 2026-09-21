@@ -6,7 +6,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { createServerClient } from "@green-farm/db/server";
+import { createBrowserClient } from "@green-farm/db/client";
 import type { News } from "@green-farm/db/types";
 import { ArrowRight, Calendar, User } from "lucide-react";
 import { MagneticButton } from "../../components/MagneticButton";
@@ -19,6 +19,8 @@ import {
   CurtainReveal,
 } from "../../components/animations";
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "Field Chronicles",
   description:
@@ -28,10 +30,10 @@ export const metadata: Metadata = {
 const fallbackNews: News[] = [
   {
     id: "1",
-    title: "Surkhet Solar Drip Expansion: Preserving 40 Hectares of Valley Aquifer",
+    title: "Surkhet Solar Drip Expansion: Preserving Valley Aquifer Reserves",
     slug: "expands-sustainable-drip-irrigation",
     excerpt:
-      "Our agronomy team has completed commissioning on a 40-hectare automated solar drip network in Birendranagar, Surkhet, reducing water intake by 45% while delivering root-targeted bio-tea nutrients.",
+      "Our agronomy team has completed commissioning on an automated solar drip network in Birendranagar, Surkhet, significantly reducing irrigation water withdrawal while delivering root-targeted bio-tea nutrients.",
     content:
       "Water stewardship in the Surkhet Valley demands more than flood irrigation. During our late autumn installations, we paired high-efficiency photovoltaic pumping with pressure-compensating inline emitters. By matching water delivery curves directly to sap-flow transpiration rates, we safeguard vital groundwater tables while ensuring stable vegetative growth through dry winter intervals.",
     cover_image: PEXELS_ASSETS.terroir.solarDrip.url,
@@ -68,12 +70,29 @@ const fallbackNews: News[] = [
 ];
 
 async function getNews(): Promise<News[]> {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  if (
+    !supabaseUrl ||
+    !supabaseAnonKey ||
+    supabaseUrl.includes("placeholder-supabase-url")
+  ) {
+    return fallbackNews;
+  }
+
   try {
-    const supabase = await createServerClient();
-    const { data, error } = await supabase
+    const supabase = createBrowserClient();
+    const fetchPromise = supabase
       .from("news")
       .select("*")
       .order("published_at", { ascending: false });
+
+    const timeoutPromise = new Promise<{ data: null; error: Error }>((resolve) =>
+      setTimeout(() => resolve({ data: null, error: new Error("Supabase fetch timeout") }), 1500)
+    );
+
+    const { data, error } = await Promise.race([fetchPromise, timeoutPromise]);
 
     if (error || !data || data.length === 0) {
       return fallbackNews;
@@ -285,7 +304,9 @@ export default async function NewsPage() {
 
                     <FadeDriftText delay={0.1} className="pt-2">
                       <Link
-                        href="/contact?subject=Press / Agronomy Inquiry"
+                        href={`/contact?${new URLSearchParams({
+                          subject: "Press / Agronomy Inquiry",
+                        }).toString()}`}
                         className="inline-flex items-center gap-2 font-sans text-xs font-semibold text-krishi-brand hover:text-krishi-forest border-b border-krishi-brand pb-0.5"
                       >
                         Inquire regarding this research
@@ -316,7 +337,9 @@ export default async function NewsPage() {
           <div className="pt-4">
             <MagneticButton>
               <Link
-                href="/contact?subject=Subscribe to Harvest Bulletin"
+                href={`/contact?${new URLSearchParams({
+                  subject: "Subscribe to Harvest Bulletin",
+                }).toString()}`}
                 className="inline-flex items-center gap-2 rounded-full bg-krishi-brand px-6 py-3 font-sans text-xs font-bold text-white hover:bg-krishi-forest transition-colors shadow-crisp-sm"
               >
                 Join Commercial Distribution List

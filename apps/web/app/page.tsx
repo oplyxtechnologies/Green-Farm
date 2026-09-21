@@ -153,7 +153,9 @@ export default function HomePage() {
           <div className="shrink-0 w-full sm:w-auto pt-1 sm:pt-0">
             <MagneticButton className="w-full sm:w-auto">
               <Link
-                href="/contact?subject=Commercial Supply Contract"
+                href={`/contact?${new URLSearchParams({
+                  subject: "Commercial Supply Contract",
+                }).toString()}`}
                 prefetch={true}
                 className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-krishi-mint-text px-6 py-3 font-sans text-xs font-bold text-krishi-mint hover:bg-black transition-colors shadow-sm text-center"
               >

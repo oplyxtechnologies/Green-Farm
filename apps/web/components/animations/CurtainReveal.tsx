@@ -72,44 +72,60 @@ export function CurtainReveal({
     () => {
       if (!containerRef.current || !curtainRef.current) return;
 
-      const tl = gsap.timeline({
-        scrollTrigger: scrollTrigger
-          ? {
-              trigger: containerRef.current,
-              start: triggerStart,
-              once: true,
-            }
-          : undefined,
-        delay,
+      const mm = gsap.matchMedia();
+
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        if (!containerRef.current || !curtainRef.current) return;
+
+        // Dynamically display and reset curtain coordinates
+        gsap.set(curtainRef.current, {
+          display: "block",
+          xPercent: 0,
+          yPercent: 0,
+        });
+
+        if (contentRef.current && scaleInitial !== 1) {
+          gsap.set(contentRef.current, { scale: scaleInitial });
+        }
+
+        const tl = gsap.timeline({
+          scrollTrigger: scrollTrigger
+            ? {
+                trigger: containerRef.current,
+                start: triggerStart,
+                once: true,
+              }
+            : undefined,
+          delay,
+        });
+
+        // Define curtain transform coordinates based on direction
+        const curtainTarget: gsap.TweenVars = {
+          duration,
+          ease,
+        };
+
+        if (direction === "up") curtainTarget.yPercent = -100;
+        else if (direction === "down") curtainTarget.yPercent = 100;
+        else if (direction === "right") curtainTarget.xPercent = 100;
+        else if (direction === "left") curtainTarget.xPercent = -100;
+
+        // Slide the curtain overlay out
+        tl.to(curtainRef.current, curtainTarget, 0);
+
+        // Concurrently scale content from initial scale to 1.0
+        if (contentRef.current && scaleInitial !== 1) {
+          tl.to(
+            contentRef.current,
+            {
+              scale: 1,
+              duration: duration * 1.1,
+              ease: "power2.out",
+            },
+            0
+          );
+        }
       });
-
-      // Define curtain transform coordinates based on direction
-      const curtainTarget: gsap.TweenVars = {
-        duration,
-        ease,
-      };
-
-      if (direction === "up") curtainTarget.yPercent = -100;
-      else if (direction === "down") curtainTarget.yPercent = 100;
-      else if (direction === "right") curtainTarget.xPercent = 100;
-      else if (direction === "left") curtainTarget.xPercent = -100;
-
-      // Slide the curtain overlay out
-      tl.to(curtainRef.current, curtainTarget, 0);
-
-      // Concurrently scale content from initial scale to 1.0
-      if (contentRef.current) {
-        tl.fromTo(
-          contentRef.current,
-          { scale: scaleInitial },
-          {
-            scale: 1,
-            duration: duration * 1.1,
-            ease: "power2.out",
-          },
-          0
-        );
-      }
     },
     {
       scope: containerRef,
@@ -138,9 +154,10 @@ export function CurtainReveal({
         {children}
       </div>
 
-      {/* Solid Curtain Overlay */}
+      {/* Solid Curtain Overlay - hidden by default to prevent blocking content without JS or with reduced motion */}
       <div
         ref={curtainRef}
+        style={{ display: "none" }}
         className={`absolute inset-0 z-20 pointer-events-none will-change-transform ${resolvedColorClass} ${curtainClassName}`}
       />
     </div>

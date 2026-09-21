@@ -6,7 +6,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { createServerClient } from "@green-farm/db/server";
+import { createBrowserClient } from "@green-farm/db/client";
 import type { Produce } from "@green-farm/db/types";
 import { ArrowRight, Calendar, MapPin, Scale, Sparkles } from "lucide-react";
 import { MagneticButton } from "../../components/MagneticButton";
@@ -17,6 +17,8 @@ import {
   StaggeredLineReveal,
   CurtainReveal,
 } from "../../components/animations";
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Seasonal Harvest Register",
@@ -34,39 +36,39 @@ interface BotanicalDetails {
 const botanicalLookup: Record<string, BotanicalDetails> = {
   "organic-himalayan-apples": {
     botanicalName: "Malus domestica Borkh.",
-    terroirOrigin: "Highland mountain terraces · Mustang & Jumla microclimates",
-    dispatchProtocol: "Cushioned timber crates · dry cold-storage 2°C–4°C",
-    minOrder: "100 kg batch",
+    terroirOrigin: "Highland mountain terraces · Mustang & Jumla microclimates (Partner Grower Reserve)",
+    dispatchProtocol: "Cushioned 20 kg timber crates · dry cold-storage 2°C–4°C · Grade A sorted",
+    minOrder: "100 kg batch (5 crates)",
   },
   "fresh-mustard-greens": {
     botanicalName: "Brassica juncea (L.) Czern.",
-    terroirOrigin: "Surkhet Valley fertile soils · Dawn harvest protocol",
-    dispatchProtocol: "Hydro-cooled field hampers · Same-day transit to Kathmandu",
-    minOrder: "30 bunch bundle",
+    terroirOrigin: "Surkhet Valley Farmstead (Birendranagar alluvial river plots)",
+    dispatchProtocol: "Hydro-cooled 15 kg slatted hampers · Dawn transit at 4°C–8°C · Bundled with natural hemp twine",
+    minOrder: "30 kg batch (2 hampers / 60 bunches)",
   },
   "organic-basmati-rice": {
     botanicalName: "Oryza sativa L. (Aromatic long-grain)",
-    terroirOrigin: "Southern plains · Himalayan glacial river sediment",
-    dispatchProtocol: "Triple-ply breathable jute bags · 6-month aged grain",
-    minOrder: "250 kg sack load",
+    terroirOrigin: "Southern Terai Plains (Managed river-basin alluvial sediment)",
+    dispatchProtocol: "50 kg triple-ply woven jute sacks with inner organic moisture barrier · 6-month aged grain",
+    minOrder: "250 kg sack load (5 × 50 kg sacks)",
   },
   "heirloom-greenhouse-tomatoes": {
     botanicalName: "Solanum lycopersicum 'San Marzano & Heirloom'",
-    terroirOrigin: "Kathmandu Valley multi-span polyhouse · Sensor fertigation",
-    dispatchProtocol: "Rigid ventilated pulp trays · picked at breaker stage",
-    minOrder: "40 kg crate",
+    terroirOrigin: "Kathmandu Valley multi-span polyhouse · Precision sensor fertigation",
+    dispatchProtocol: "20 kg rigid pulp cell divider trays · picked at breaker stage · 10°C–12°C transit",
+    minOrder: "40 kg batch (2 × 20 kg crates)",
   },
   "highland-raw-honey": {
     botanicalName: "Apis cerana indica nectar reserve",
-    terroirOrigin: "Unsprayed highland floral pastures · Organic bee reserve",
-    dispatchProtocol: "Glass amber vessels · unheated, unfiltered raw honey",
-    minOrder: "12 jar carton",
+    terroirOrigin: "Karnali & Himalayan Mid-Hill Floral Pastures (Native forest apiaries)",
+    dispatchProtocol: "24-compartment shock-absorbing shipper cartons · unheated, unfiltered raw honey in 500g amber glass",
+    minOrder: "12 kg carton (24 × 500g glass jars)",
   },
   "organic-red-bell-peppers": {
     botanicalName: "Capsicum annuum var. grossum",
-    terroirOrigin: "Protected greenhouse benches · Bio-control ladybug habitat",
-    dispatchProtocol: "Corrugated cell cartons · ethylene-scrubbed transport",
-    minOrder: "50 kg crate",
+    terroirOrigin: "Kathmandu Valley Polyhouse Complex · Bio-control ladybug protected benches",
+    dispatchProtocol: "10 kg heavy-duty telescopic corrugated cell cartons · ethylene-scrubbed transport at 7°C–10°C",
+    minOrder: "50 kg batch (5 × 10 kg cartons)",
   },
 };
 
@@ -152,12 +154,29 @@ const fallbackProduce: Produce[] = [
 ];
 
 async function getProduce(): Promise<Produce[]> {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  if (
+    !supabaseUrl ||
+    !supabaseAnonKey ||
+    supabaseUrl.includes("placeholder-supabase-url")
+  ) {
+    return fallbackProduce;
+  }
+
   try {
-    const supabase = await createServerClient();
-    const { data, error } = await supabase
+    const supabase = createBrowserClient();
+    const fetchPromise = supabase
       .from("produce")
       .select("*")
       .order("created_at", { ascending: false });
+
+    const timeoutPromise = new Promise<{ data: null; error: Error }>((resolve) =>
+      setTimeout(() => resolve({ data: null, error: new Error("Supabase fetch timeout") }), 1500)
+    );
+
+    const { data, error } = await Promise.race([fetchPromise, timeoutPromise]);
 
     if (error || !data || data.length === 0) {
       return fallbackProduce;
@@ -190,7 +209,7 @@ export default async function ProducePage() {
               className="mt-6 text-base sm:text-lg text-slate-700 font-sans leading-relaxed"
               stagger={0.02}
             >
-              Every crop documented here is cultivated across our own managed acreage under certified organic standards. We balance heritage seed preservation with sensor-monitored drip irrigation to produce dependable commercial tonnage.
+              Every crop documented here is cultivated across our own managed acreage under strict chemical-free agroecological standards. We balance heritage seed preservation with sensor-monitored drip irrigation to produce dependable commercial tonnage.
             </StaggeredLineReveal>
           </div>
 
@@ -201,7 +220,7 @@ export default async function ProducePage() {
                 Active Cultivation Zones
               </span>
               <p className="font-heading text-slate-900 font-bold text-base mt-1">
-                Surkhet &amp; Kathmandu Valleys
+                Surkhet &amp; Kathmandu Valleys (Managed) · Mustang &amp; Terai (Partner Terroirs)
               </p>
             </div>
             <div>
@@ -359,9 +378,9 @@ export default async function ProducePage() {
 
                     <MagneticButton>
                       <Link
-                        href={`/contact?subject=Procurement Inquiry: ${encodeURIComponent(
-                          item.title
-                        )}`}
+                        href={`/contact?${new URLSearchParams({
+                          subject: `Procurement Inquiry: ${item.title}`,
+                        }).toString()}`}
                         className="inline-flex items-center gap-2 rounded-full bg-krishi-brand px-5 py-2.5 font-sans text-xs font-semibold text-white hover:bg-krishi-forest transition-colors shadow-crisp-sm"
                       >
                         Request Wholesale Allocation
@@ -400,7 +419,9 @@ export default async function ProducePage() {
               <div className="pt-4 flex flex-wrap gap-4 items-center">
                 <MagneticButton>
                   <Link
-                    href="/contact?subject=Commercial Supply Contract"
+                    href={`/contact?${new URLSearchParams({
+                      subject: "Commercial Supply Contract",
+                    }).toString()}`}
                     className="inline-flex items-center gap-2 rounded-full bg-krishi-brand px-6 py-3 font-sans text-xs font-bold text-white hover:bg-krishi-forest transition-colors shadow-crisp-sm"
                   >
                     Initiate Procurement Contract

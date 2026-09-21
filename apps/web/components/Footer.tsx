@@ -107,10 +107,10 @@ export function Footer() {
               <p>
                 Wholesale Desk:{" "}
                 <a
-                  href="mailto:wholesale@greennepalkrishi.com"
+                  href="mailto:wholesale@greennepalagricultural.com"
                   className="text-slate-200 hover:text-krishi-mint transition-colors"
                 >
-                  wholesale@greennepalkrishi.com
+                  wholesale@greennepalagricultural.com
                 </a>
               </p>
               <p>Daily Fresh Dispatch: 04:00 – 12:00 NPT</p>
@@ -134,7 +134,7 @@ export function Footer() {
                   Commercial Terms &amp; Conditions
                 </Link>
               </li>
-              <li className="pt-2 text-[11px] text-slate-500">
+              <li className="pt-2 text-[11px] text-slate-400">
                 Registered under the agricultural commercial enterprise framework of Nepal.
               </li>
             </ul>
@@ -142,7 +142,7 @@ export function Footer() {
         </div>
 
         {/* Footnote */}
-        <div className="mt-14 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-slate-500">
+        <div className="mt-14 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-slate-400">
           <span>© {new Date().getFullYear()} Green Nepal Agricultural Farm. All rights reserved.</span>
           <span>Organic Agricultural Enterprise · Nepal</span>
         </div>

@@ -35,7 +35,7 @@ const openRoles = [
     station: "Surkhet Valley Station (Birendranagar)",
     type: "Full-time Technical Role",
     responsibilities:
-      "Maintain solar PV pumping stations, sub-surface drip manifolds, filtration backwash cycles, and soil moisture sensor telemetry across 40 hectares.",
+      "Maintain solar PV pumping stations, sub-surface drip manifolds, filtration backwash cycles, and soil moisture sensor telemetry across our commercial farming plots.",
     qualifications: "Technical diploma in Agricultural Engineering, Electrical, or Mechanical Systems.",
   },
   {
@@ -212,7 +212,9 @@ export default function CareersPage() {
                 <div className="pt-2 flex justify-end">
                   <MagneticButton>
                     <Link
-                      href={`/contact?subject=Application for ${encodeURIComponent(role.title)}`}
+                      href={`/contact?${new URLSearchParams({
+                        subject: `Application for ${role.title}`,
+                      }).toString()}`}
                       className="inline-flex items-center gap-2 rounded-full bg-krishi-brand px-5 py-2.5 font-sans text-xs font-semibold text-white hover:bg-krishi-forest transition-colors shadow-crisp-sm"
                     >
                       Submit Candidacy Dossier
@@ -240,7 +242,9 @@ export default function CareersPage() {
               <div className="pt-2">
                 <MagneticButton>
                   <Link
-                    href="/contact?subject=General Agronomy Candidacy"
+                    href={`/contact?${new URLSearchParams({
+                      subject: "General Agronomy Candidacy",
+                    }).toString()}`}
                     className="inline-flex items-center gap-2 rounded-full bg-krishi-brand px-6 py-2.5 font-sans text-xs font-bold text-white hover:bg-krishi-forest transition-colors shadow-crisp-sm"
                   >
                     Transmit General Application

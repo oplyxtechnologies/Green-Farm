@@ -124,7 +124,7 @@ export default function AboutPage() {
                 Our farm produces its own rich vermicast using indigenous earthworms,
                 recycles crop residuals into mulch, and protects irrigation water tables with
                 precision solar-driven drip telemetry. The result is produce with dense
-                micronutrients, uncompromised flavor, and zero chemical toxicity.
+                micronutrients, uncompromised flavor, and zero synthetic agrochemical residues.
               </p>
 
               <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-slate-200">
@@ -132,7 +132,7 @@ export default function AboutPage() {
                   <Sprout className="h-5 w-5 text-krishi-brand shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-heading font-bold text-slate-900 text-sm">
-                      Zero Agrochemicals
+                      Agrochemical-Free Living Soil
                     </h4>
                     <p className="font-sans text-xs text-slate-500 mt-0.5">
                       100% bio-inputs, neem sprays &amp; compost tea
@@ -222,7 +222,7 @@ export default function AboutPage() {
             <p className="text-sm sm:text-base text-slate-600 font-sans leading-relaxed">
               Every lot leaving our packing facility carries documented harvest records,
               cultivar pedigree, and soil lot numbering. Institutional clients can inspect
-              our fields, review soil sample test reports, and audit our zero-chemical protocols
+              our fields, review soil sample test reports, and audit our natural agroecological protocols
               at any point during the agricultural calendar.
             </p>
 

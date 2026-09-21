@@ -20,19 +20,14 @@
   --color-mint-text: #072E18; /* Deep green for reading on mint background */
 
   /* Brand Primary (The Official Green) */
-  --color-primary: #0ea149; 
-  --color-primary-hover: #0B823A;
+  --color-primary: #0b823a; 
+  --color-primary-hover: #096B2F;
   --color-primary-light: #E8F5EB;
 
   /* Secondary (Fresh Irrigation Water / Sky Blue - NO BROWN) */
   --color-secondary: #2E8BC0;
   --color-secondary-hover: #1F6992;
   --color-secondary-light: #EAF4F9;
-
-  /* Accent (Crisp Morning Sun - Clean Yellow, no muddy gold) */
-  --color-accent: #FFD166;
-  --color-accent-hover: #FFC233;
-  --color-accent-light: #FFF8E6;
 
   /* Selection & Focus States */
   --color-selection-bg: var(--color-mint);

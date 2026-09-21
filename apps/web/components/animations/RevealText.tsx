@@ -91,20 +91,30 @@ export function RevealText({
   const words = typeof children === "string" ? children.trim().split(/\s+/) : [];
 
   return (
-    <Component ref={containerRef as any} className={`relative max-w-full ${className}`}>
+    <Component
+      ref={containerRef as any}
+      aria-label={typeof children === "string" ? children : undefined}
+      className={`relative max-w-full ${className}`}
+    >
       {splitWords && words.length > 0 ? (
         words.map((word, i) => (
-          <span
-            key={`${word}-${i}`}
-            className="inline-block overflow-hidden align-top pb-[0.25em] -mb-[0.25em] mr-[0.28em] max-w-full"
-          >
-            <span className="reveal-word inline-block will-change-transform max-w-full break-words">
-              {word}
+          <React.Fragment key={`${word}-${i}`}>
+            <span
+              aria-hidden="true"
+              className="inline-block overflow-hidden align-top pb-[0.25em] -mb-[0.25em] max-w-full"
+            >
+              <span className="reveal-word inline-block will-change-transform max-w-full break-words">
+                {word}
+              </span>
             </span>
-          </span>
+            {" "}
+          </React.Fragment>
         ))
       ) : (
-        <span className="inline-block overflow-hidden w-full align-top pb-[0.25em] -mb-[0.25em]">
+        <span
+          aria-hidden="true"
+          className="inline-block overflow-hidden w-full align-top pb-[0.25em] -mb-[0.25em]"
+        >
           <span className="reveal-block inline-block will-change-transform w-full break-words">
             {children}
           </span>

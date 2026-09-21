@@ -25,7 +25,7 @@ export function MagneticButton({
   const containerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
-    () => {
+    (context, contextSafe) => {
       const el = containerRef.current;
       if (!el) return;
 
@@ -35,11 +35,7 @@ export function MagneticButton({
         if (isTouch) return;
       }
 
-      const handleMouseMove = (e: MouseEvent) => {
-        const rect = el.getBoundingClientRect();
-        const relX = e.clientX - (rect.left + rect.width / 2);
-        const relY = e.clientY - (rect.top + rect.height / 2);
-
+      const animateMove = (relX: number, relY: number) => {
         gsap.to(el, {
           x: relX * strength,
           y: relY * strength,
@@ -49,7 +45,7 @@ export function MagneticButton({
         });
       };
 
-      const handleMouseLeave = () => {
+      const animateLeave = () => {
         gsap.to(el, {
           x: 0,
           y: 0,
@@ -57,6 +53,20 @@ export function MagneticButton({
           ease: "elastic.out(1, 0.35)",
           overwrite: "auto",
         });
+      };
+
+      const safeMove = contextSafe ? contextSafe(animateMove) : animateMove;
+      const safeLeave = contextSafe ? contextSafe(animateLeave) : animateLeave;
+
+      const handleMouseMove = (e: MouseEvent) => {
+        const rect = el.getBoundingClientRect();
+        const relX = e.clientX - (rect.left + rect.width / 2);
+        const relY = e.clientY - (rect.top + rect.height / 2);
+        safeMove(relX, relY);
+      };
+
+      const handleMouseLeave = () => {
+        safeLeave();
       };
 
       el.addEventListener("mousemove", handleMouseMove);

@@ -66,20 +66,19 @@ export function SeasonalHarvest() {
                 src={PEXELS_ASSETS.crops.tomatoes.url}
                 alt={PEXELS_ASSETS.crops.tomatoes.alt}
                 fill
-                priority
                 sizes="(max-width: 1024px) 100vw, 42vw"
                 className="object-cover"
               />
               <div className="absolute top-4 left-4 z-10 max-w-[calc(100%-2rem)]">
-                <span className="inline-block rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-900 border border-slate-200 shadow-sm truncate">
-                  Kathmandu Polyhouses
+                <span className="inline-block rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-sans font-semibold uppercase tracking-wider text-slate-900 border border-slate-200 shadow-sm truncate">
+                  Protected Polyhouse Harvest
                 </span>
               </div>
             </CurtainReveal>
 
             {/* Card Text Outside Image - Explicitly h-auto with ample bottom clearance */}
             <div className="flex flex-col h-auto space-y-2 pt-1 pb-4 min-w-0">
-              <span className="text-[11px] font-mono uppercase tracking-widest text-krishi-brand block">
+              <span className="text-[11px] font-sans font-semibold uppercase tracking-widest text-krishi-brand block">
                 Solanum lycopersicum · Protected Culture
               </span>
               <h3 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-snug pb-1">
@@ -87,7 +86,7 @@ export function SeasonalHarvest() {
               </h3>
               <p className="text-slate-600 font-sans text-sm leading-relaxed pt-1">
                 Cultivated inside engineered polyhouse structures with micro-drip fertigation
-                and zero chemical pesticides. Hand-harvested in clusters at balanced brix acidity
+                and natural biological pest protection. Hand-harvested in clusters at balanced brix acidity
                 for hospitality chains and commercial grocers.
               </p>
               <div className="pt-4 mt-2 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500 font-sans">
@@ -125,7 +124,7 @@ export function SeasonalHarvest() {
                   className="object-cover"
                 />
                 <div className="absolute top-4 left-4 z-10 max-w-[calc(100%-2rem)]">
-                  <span className="inline-block rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-900 border border-slate-200 shadow-sm truncate">
+                  <span className="inline-block rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-sans font-semibold uppercase tracking-wider text-slate-900 border border-slate-200 shadow-sm truncate">
                     High-Tunnels · Continuous Cycle
                   </span>
                 </div>
@@ -133,7 +132,7 @@ export function SeasonalHarvest() {
 
               {/* Card Text Outside Image */}
               <div className="flex flex-col h-auto space-y-2 pt-1 pb-4 min-w-0">
-                <span className="text-[11px] font-mono uppercase tracking-widest text-krishi-brand block">
+                <span className="text-[11px] font-sans font-semibold uppercase tracking-widest text-krishi-brand block">
                   Capsicum annuum · Precision Fertigation
                 </span>
                 <h3 className="font-heading text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-snug pb-1">
@@ -177,15 +176,15 @@ export function SeasonalHarvest() {
                   className="object-cover"
                 />
                 <div className="absolute top-4 left-4 z-10 max-w-[calc(100%-2rem)]">
-                  <span className="inline-block rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-900 border border-slate-200 shadow-sm truncate">
-                    Surkhet Valley Farm
+                  <span className="inline-block rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-sans font-semibold uppercase tracking-wider text-slate-900 border border-slate-200 shadow-sm truncate">
+                    Open-Field Valley Crop
                   </span>
                 </div>
               </CurtainReveal>
 
               {/* Card Text Outside Image */}
               <div className="flex flex-col h-auto space-y-2 pt-1 pb-4 min-w-0">
-                <span className="text-[11px] font-mono uppercase tracking-widest text-krishi-brand block">
+                <span className="text-[11px] font-sans font-semibold uppercase tracking-widest text-krishi-brand block">
                   Brassica juncea · Surkhet Alluvial Silt
                 </span>
                 <h3 className="font-heading text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-snug pb-1">

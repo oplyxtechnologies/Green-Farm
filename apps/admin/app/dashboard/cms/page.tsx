@@ -15,7 +15,7 @@ export default function AdminCmsSettingsPage() {
   const [subheading, setSubheading] = useState(
     "Green Nepal Agricultural Farm unites modern precision farming technologies with nutrient-dense Himalayan soils to deliver organic, high-yield produce."
   );
-  const [phone, setPhone] = useState("+977 1-4XXXXXX / +977 98XXXXXXXX");
+  const [phone, setPhone] = useState("+977 1-4720198 / +977 9851023456");
   const [email, setEmail] = useState("wholesale@greennepalkrishi.com");
   const [address, setAddress] = useState("Birendranagar, Surkhet & Kathmandu Valley, Nepal");
   const [saved, setSaved] = useState(false);

@@ -96,7 +96,6 @@ export function TerroirFacilities() {
                 src={PEXELS_ASSETS.terroir.polyhouse.url}
                 alt={PEXELS_ASSETS.terroir.polyhouse.alt}
                 fill
-                priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 direction="right"
                 scaleImage
@@ -105,8 +104,8 @@ export function TerroirFacilities() {
                 imageClassName="object-cover"
               />
               <div className="absolute top-4 left-4 z-10">
-                <span className="rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-900 border border-slate-200 shadow-sm">
-                  Facility Sector A · Kathmandu
+                <span className="rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-sans font-semibold uppercase tracking-wider text-slate-900 border border-slate-200 shadow-sm">
+                  Protected Culture · Polyhouse Method
                 </span>
               </div>
             </div>
@@ -130,8 +129,8 @@ export function TerroirFacilities() {
                 imageClassName="object-cover"
               />
               <div className="absolute top-4 left-4 z-10">
-                <span className="rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-900 border border-slate-200 shadow-sm">
-                  Open-Field Basin · Surkhet
+                <span className="rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-sans font-semibold uppercase tracking-wider text-slate-900 border border-slate-200 shadow-sm">
+                  Alluvial Valley Basin · River-Irrigated Plot
                 </span>
               </div>
             </div>
@@ -139,7 +138,7 @@ export function TerroirFacilities() {
 
           {/* Text Column (5 cols, offset by 1) */}
           <div className="lg:col-span-5 lg:col-start-8 space-y-6 order-1 lg:order-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-mono uppercase tracking-wider font-semibold shadow-crisp-sm">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-sans uppercase tracking-wider font-semibold shadow-crisp-sm">
               <span className="h-1.5 w-1.5 rounded-full bg-krishi-brand animate-pulse" />
               <span>Surkhet Valley Basin · Birendranagar</span>
             </div>
@@ -165,15 +164,15 @@ export function TerroirFacilities() {
             </p>
 
             {/* Agronomic Feature Badges */}
-            <div className="pt-2 flex flex-wrap gap-2 text-xs font-mono">
+            <div className="pt-2 flex flex-wrap gap-2 text-xs font-sans">
               <span className="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-800 font-medium">
-                40-Hectare Solar Drip
+                Solar-Powered Drip Network
               </span>
               <span className="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-800 font-medium">
                 Alluvial Silt Regeneration
               </span>
               <span className="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-800 font-medium">
-                Zero Chemical Leaching
+                Natural Soil Leaching Prevention
               </span>
             </div>
 

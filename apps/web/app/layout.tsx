@@ -18,7 +18,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_WEB_URL || "http://localhost:3000"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_WEB_URL || "https://greennepalkrishi.com"),
+  alternates: {
+    canonical: "./",
+  },
   title: {
     default: "Green Nepal Agricultural Farm | Organic Agriculture",
     template: "%s | Green Nepal Agricultural Farm",
@@ -40,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://greennepalkrishi.com",
+    url: "./",
     title: "Green Nepal Agricultural Farm | Organic Agriculture",
     description:
       "Cultivating quality, sustainability, and fresh agricultural produce across Nepal.",
@@ -62,10 +65,44 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-    apple: "/icon-color.svg",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Green Nepal Agricultural Farm",
+  alternateName: "Green Nepal Krishi",
+  url: "https://greennepalkrishi.com",
+  logo: "https://greennepalkrishi.com/icon-color.svg",
+  description:
+    "Leading organic agricultural enterprise in Nepal specializing in high-yield crops, polyhouse cultivation, and sustainable farming.",
+  email: "wholesale@greennepalagricultural.com",
+  telephone: "+977 1-4720198",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Birendranagar & Kathmandu Valley",
+    addressLocality: "Surkhet",
+    addressRegion: "Karnali Province",
+    addressCountry: "NP",
+  },
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+977 1-4720198",
+      contactType: "sales",
+      areaServed: "NP",
+      availableLanguage: ["Nepali", "English"],
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -74,8 +111,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${plusJakarta.variable} ${inter.variable}`}>
-      <body className="min-h-screen flex flex-col antialiased bg-background text-text font-sans selection:bg-krishi-mint selection:text-krishi-mint-text overflow-x-hidden w-full max-w-full">
+    <html lang="en" className={`${plusJakarta.variable} ${inter.variable} overflow-x-clip`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      </head>
+      <body className="min-h-screen flex flex-col antialiased bg-background text-text font-sans selection:bg-krishi-mint selection:text-krishi-mint-text w-full max-w-full">
         <LenisProvider>
           <Navbar />
           <main className="flex-1 w-full max-w-full overflow-x-hidden">{children}</main>

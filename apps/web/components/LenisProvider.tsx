@@ -5,7 +5,7 @@
 
 "use client";
 
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useLayoutEffect } from "react";
 import { usePathname } from "next/navigation";
 import { ReactLenis, useLenis } from "@studio-freight/react-lenis";
 import gsap from "gsap";
@@ -15,6 +15,9 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
 function ScrollTriggerSync() {
   const pathname = usePathname();
   const lenis = useLenis();
@@ -23,10 +26,10 @@ function ScrollTriggerSync() {
     ScrollTrigger.update();
   });
 
-  useEffect(() => {
-    // Snap to top immediately on route change without a smooth animation
+  useIsomorphicLayoutEffect(() => {
+    // Snap to top immediately before paint on route change
     if (lenis) {
-      lenis.scrollTo(0, { immediate: true });
+      lenis.scrollTo(0, { immediate: true, force: true });
     }
 
     // Refresh ScrollTrigger calculations after route transition & layout rendering
@@ -41,16 +44,6 @@ function ScrollTriggerSync() {
 }
 
 export function LenisProvider({ children }: { children: ReactNode }) {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return <>{children}</>;
-  }
-
   return (
     <ReactLenis
       root

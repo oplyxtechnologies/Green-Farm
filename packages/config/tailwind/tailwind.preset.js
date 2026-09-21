@@ -11,14 +11,13 @@ module.exports = {
       colors: {
         // Fresh & Crisp Brand Palette (Strictly No Browns)
         krishi: {
-          brand: "var(--color-primary, #0ea149)",
+          brand: "var(--color-primary, #0b823a)",
           mint: "var(--color-mint, #5DFF9E)",
           "mint-text": "var(--color-mint-text, #072E18)",
           dark: "var(--color-text, #0F1A15)",
           cream: "var(--color-background, #FCFDFD)",
           water: "var(--color-secondary, #2E8BC0)",
-          sun: "var(--color-accent, #FFD166)",
-          forest: "var(--color-primary-hover, #0B823A)",
+          forest: "var(--color-primary-hover, #096B2F)",
           leaf: "#28B85A",
         },
 
@@ -42,19 +41,14 @@ module.exports = {
           faint: "#4A5C52", // Cool slate
         },
         primary: {
-          DEFAULT: "var(--color-primary, #0ea149)",
-          hover: "var(--color-primary-hover, #0B823A)",
+          DEFAULT: "var(--color-primary, #0b823a)",
+          hover: "var(--color-primary-hover, #096B2F)",
           light: "var(--color-primary-light, #E8F5EB)",
         },
         secondary: {
           DEFAULT: "var(--color-secondary, #2E8BC0)",
           hover: "var(--color-secondary-hover, #1F6992)",
           light: "var(--color-secondary-light, #EAF4F9)",
-        },
-        accent: {
-          DEFAULT: "var(--color-accent, #FFD166)",
-          hover: "var(--color-accent-hover, #FFC233)",
-          light: "var(--color-accent-light, #FFF8E6)",
         },
         
         // A fresh, cool slate scale to replace the deleted brown/parchment scales.
@@ -78,7 +72,7 @@ module.exports = {
         sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
         heading: ["var(--font-plus-jakarta)", ...defaultTheme.fontFamily.sans],
         serif: ["var(--font-plus-jakarta)", ...defaultTheme.fontFamily.sans],
-        mono: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
+        mono: [...defaultTheme.fontFamily.mono],
       },
       letterSpacing: {
         tighter: "-0.04em",

@@ -5,7 +5,8 @@
 
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -20,6 +21,20 @@ export function VideoHero() {
   const titleLine2Ref = useRef<HTMLSpanElement>(null);
   const descRef = useRef<HTMLParagraphElement>(null);
   const ctaGroupRef = useRef<HTMLDivElement>(null);
+  const [canPlayVideo, setCanPlayVideo] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia(
+      "(min-width: 768px) and (prefers-reduced-motion: no-preference)"
+    );
+    setCanPlayVideo(mediaQuery.matches);
+
+    const handler = (e: MediaQueryListEvent) => {
+      setCanPlayVideo(e.matches);
+    };
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, []);
 
   useGSAP(
     () => {
@@ -77,21 +92,31 @@ export function VideoHero() {
       ref={containerRef}
       className="relative min-h-screen flex items-center overflow-hidden bg-slate-950 text-krishi-cream"
     >
-      {/* Background Video Layer with Crisp Vignette */}
+      {/* Background Video/Image Layer with Crisp Vignette */}
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster={PEXELS_ASSETS.heroVideo.posterUrl}
-          className="h-full w-full object-cover opacity-35 filter brightness-95 contrast-105"
-        >
-          <source
-            src={PEXELS_ASSETS.heroVideo.videoUrl}
-            type="video/mp4"
-          />
-        </video>
+        <Image
+          src="/hero-poster.jpg"
+          alt="Aerial drone view of green cropland and organic fields"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-35 filter brightness-95 contrast-105"
+        />
+
+        {canPlayVideo && (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 h-full w-full object-cover opacity-35 filter brightness-95 contrast-105"
+          >
+            <source
+              src={PEXELS_ASSETS.heroVideo.videoUrl}
+              type="video/mp4"
+            />
+          </video>
+        )}
 
         {/* Nuanced Crisp Gradients */}
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />
@@ -129,7 +154,7 @@ export function VideoHero() {
             className="max-w-2xl text-base sm:text-lg text-slate-300 font-sans font-normal leading-relaxed"
           >
             Green Nepal Agricultural Farm pairs ecological soil regeneration with modern
-            polyhouses and precision drip networks. We cultivate certified organic
+            polyhouses and precision drip networks. We cultivate organically grown
             staples, highland fruits, and greens for wholesale distribution across Nepal.
           </p>
 

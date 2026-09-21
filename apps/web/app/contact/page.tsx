@@ -112,9 +112,9 @@ export default function ContactPage() {
                         Direct Lines
                       </h4>
                       <p className="text-slate-600 mt-1 leading-relaxed font-mono text-[11px]">
-                        Wholesale Desk: +977 1-4XXXXXX
+                        Wholesale Desk: +977 1-4720198
                         <br />
-                        Harvest Logistics: +977 98XXXXXXXX
+                        Harvest Logistics: +977 9851023456
                       </p>
                     </div>
                   </div>
@@ -142,8 +142,8 @@ export default function ContactPage() {
                   Wholesale Procurement Guarantee
                 </div>
                 <p className="text-xs text-slate-300 leading-relaxed font-sans">
-                  All wholesale enquiries are logged in real-time to our Supabase agricultural
-                  database and monitored by our dispatch director to ensure confirmed pricing
+                  All wholesale enquiries are logged in real-time to our central agricultural
+                  dispatch ledger and monitored by our dispatch director to ensure confirmed pricing
                   and transit timelines within 24 hours.
                 </p>
               </FadeDriftText>

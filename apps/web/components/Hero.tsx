@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { RevealText } from "./animations/RevealText";
 import { PEXELS_ASSETS } from "../lib/pexels";
@@ -11,40 +12,65 @@ import { PEXELS_ASSETS } from "../lib/pexels";
  * GSAP text reveal, and Fresh & Dewy brand styling.
  */
 export function Hero() {
+  const [canPlayVideo, setCanPlayVideo] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia(
+      "(min-width: 768px) and (prefers-reduced-motion: no-preference)"
+    );
+    setCanPlayVideo(mediaQuery.matches);
+
+    const handler = (e: MediaQueryListEvent) => {
+      setCanPlayVideo(e.matches);
+    };
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, []);
+
   return (
     <section className="relative min-h-screen w-full max-w-full flex items-end pb-16 sm:pb-24 pt-28 sm:pt-32 px-4 sm:px-6 lg:px-8 overflow-hidden bg-krishi-dark">
-      {/* Background Video */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster={PEXELS_ASSETS.heroVideo.posterUrl}
+      {/* Background Poster Image (Immediate, self-hosted LCP element) */}
+      <Image
+        src="/hero-poster.jpg"
+        alt="Aerial view of green agricultural fields at Green Nepal Agricultural Farm"
+        fill
+        priority
+        sizes="100vw"
         className="absolute inset-0 h-full w-full object-cover"
-      >
-        <source src={PEXELS_ASSETS.heroVideo.videoUrl} type="video/mp4" />
-      </video>
+      />
+
+      {/* Background Video (gated to >=768px & reduced-motion: no-preference) */}
+      {canPlayVideo && (
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
+        >
+          <source src={PEXELS_ASSETS.heroVideo.videoUrl} type="video/mp4" />
+        </video>
+      )}
 
       {/* Dark Overlay (mix-blend-multiply to ensure high-contrast text legibility) */}
-      <div className="absolute inset-0 bg-krishi-dark/60 mix-blend-multiply" />
+      <div className="absolute inset-0 bg-krishi-dark/60 mix-blend-multiply pointer-events-none" />
 
       {/* Additional subtle gradient for cinematic depth */}
       <div className="absolute inset-0 bg-gradient-to-t from-krishi-dark via-krishi-dark/40 to-transparent pointer-events-none" />
 
-      {/* 12-Column Asymmetrical Grid Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full relative z-10 max-w-7xl mx-auto items-end">
+      {/* 12-Column Asymmetrical Grid Layout with dimension security to prevent CLS */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full relative z-10 max-w-7xl mx-auto items-end min-h-[496px]">
         {/* Left Column (lg:col-span-8): Primary headline and subheadline */}
-        <div className="lg:col-span-8">
+        <div className="lg:col-span-8 flex flex-col justify-end">
           {/* Eyebrow */}
-          <div className="text-krishi-cream  text-xs tracking-widest  mb-6 flex items-center gap-2">
-        
+          <div className="text-krishi-cream font-sans uppercase text-xs tracking-widest font-semibold mb-6 flex items-center gap-2">
             <span>Surkhet &amp; Kathmandu Valley · Commercial Farm</span>
           </div>
 
           {/* Primary Headline with RevealText GSAP component */}
           <RevealText
             as="h1"
-            className="text-krishi-cream font-heading text-4xl sm:text-6xl md:text-8xl font-bold leading-editorial tracking-tight break-words"
+            className="text-krishi-cream font-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-editorial tracking-tight break-words"
             delay={0.15}
             duration={1.05}
           >
@@ -62,14 +88,14 @@ export function Hero() {
         <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-end gap-6">
           {/* Operational Metadata */}
           <div className="flex flex-col text-left lg:text-right space-y-1.5 border-l-2 lg:border-l-0 lg:border-r-2 border-krishi-mint/40 pl-4 lg:pl-0 lg:pr-4">
-            <span className="font-mono text-[11px] uppercase tracking-widest text-krishi-mint font-semibold">
+            <span className="font-sans text-[11px] uppercase tracking-widest text-krishi-mint font-semibold">
               Daily Wholesale Dispatch
             </span>
             <p className="text-xs text-slate-300 font-sans">
               04:00 – 12:00 NPT · Surkhet &amp; Kathmandu Hubs
             </p>
-            <span className="text-[10px] text-slate-400 font-mono">
-              Direct Farm Allocation · Certified Organic
+            <span className="text-[10px] text-slate-400 font-sans">
+              Direct Farm Allocation · Chemical-Free Produce
             </span>
           </div>
 

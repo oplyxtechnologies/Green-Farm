@@ -82,12 +82,15 @@ export function ClipWipeImage({
     () => {
       if (!wipeRef.current || !containerRef.current) return;
 
-      gsap.fromTo(
-        wipeRef.current,
-        {
-          clipPath: initialClip,
-        },
-        {
+      const mm = gsap.matchMedia();
+
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        if (!wipeRef.current || !containerRef.current) return;
+
+        // Dynamically set initial clipPath only when motion is allowed
+        gsap.set(wipeRef.current, { clipPath: initialClip });
+
+        gsap.to(wipeRef.current, {
           clipPath: "inset(0% 0% 0% 0%)",
           duration,
           delay,
@@ -99,14 +102,11 @@ export function ClipWipeImage({
                 once: true,
               }
             : undefined,
-        }
-      );
+        });
 
-      if (scaleImage && innerRef.current) {
-        gsap.fromTo(
-          innerRef.current,
-          { scale: 1.15 },
-          {
+        if (scaleImage && innerRef.current) {
+          gsap.set(innerRef.current, { scale: 1.15 });
+          gsap.to(innerRef.current, {
             scale: 1,
             duration: duration * 1.15,
             delay,
@@ -118,9 +118,9 @@ export function ClipWipeImage({
                   once: true,
                 }
               : undefined,
-          }
-        );
-      }
+          });
+        }
+      });
     },
     {
       scope: containerRef,
@@ -135,7 +135,6 @@ export function ClipWipeImage({
     >
       <div
         ref={wipeRef}
-        style={{ clipPath: initialClip }}
         className="relative h-full w-full will-change-[clip-path]"
       >
         <div
