@@ -1,0 +1,14 @@
+{
+  "name": "@green-farm/config",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shared configurations for Green Nepal Krishi Farm monorepo",
+  "exports": {
+    "./tailwind": "./tailwind/tailwind.preset.js",
+    "./typescript/base.json": "./typescript/base.json",
+    "./typescript/nextjs.json": "./typescript/nextjs.json"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.14"
+  }
+}

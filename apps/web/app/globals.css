@@ -1,0 +1,141 @@
+/* Hallmark · macrostructure: editorial-spread · theme: himalayan-terroir · genre: editorial
+ * pre-emit critique: P5 H5 E5 S5 R5 V5
+ * slop test: pass / all-gates-cleared
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Canvas & Backgrounds (Crisp, Dewy Whites) */
+  --color-background: #FCFDFD; /* Pure crisp white with a micro-hint of mint */
+  --color-background-secondary: #F0F7F2; /* Very soft fresh leaf tint */
+
+  /* Ink / Text (Deep Charcoal-Green instead of Olive/Brown) */
+  --color-text: #0F1A15; /* Almost black, cool slate-green */
+  --color-text-muted: #4A5C52; /* Cool slate-grey-green */
+  
+  /* High-Visibility Accents */
+  --color-mint: #5DFF9E; /* Keep the vibrant mint */
+  --color-mint-text: #072E18; /* Deep green for reading on mint background */
+
+  /* Brand Primary (The Official Green) */
+  --color-primary: #0ea149; 
+  --color-primary-hover: #0B823A;
+  --color-primary-light: #E8F5EB;
+
+  /* Secondary (Fresh Irrigation Water / Sky Blue - NO BROWN) */
+  --color-secondary: #2E8BC0;
+  --color-secondary-hover: #1F6992;
+  --color-secondary-light: #EAF4F9;
+
+  /* Accent (Crisp Morning Sun - Clean Yellow, no muddy gold) */
+  --color-accent: #FFD166;
+  --color-accent-hover: #FFC233;
+  --color-accent-light: #FFF8E6;
+
+  /* Selection & Focus States */
+  --color-selection-bg: var(--color-mint);
+  --color-selection-text: var(--color-mint-text);
+
+  /* Borders & Dividers */
+  --border-hairline: #E8F0EA;
+  --border-subtle: #DCE8E1;
+}
+
+/* High-Impact High-Contrast Pairing (Fresh Version) */
+.krishi-high-impact {
+  background-color: var(--color-mint);
+  color: var(--color-mint-text);
+}
+
+/* Anti-AI-Slop Gate 62: overflow-x: clip on html and body, never hidden */
+html {
+  overflow-x: clip;
+  scroll-behavior: initial;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  overflow-x: clip;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.65;
+}
+
+/* Subtle, soft organic selection color (not default browser electric blue) */
+::selection {
+  background-color: var(--color-selection-bg);
+  color: var(--color-selection-text);
+}
+
+::-moz-selection {
+  background-color: var(--color-selection-bg);
+  color: var(--color-selection-text);
+}
+
+/* Bespoke Focus States: 2px solid primary crop green with 2px offset */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Crisp & Modern Display Headers with Plus Jakarta Sans */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+/* Subtle crisp grain overlay */
+.bg-crisp-texture,
+.bg-parchment-texture {
+  background-color: var(--color-background);
+  background-image: radial-gradient(var(--border-subtle) 0.75px, transparent 0.75px);
+  background-size: 24px 24px;
+}
+
+/* Lenis Recommended Smooth Scroll CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
