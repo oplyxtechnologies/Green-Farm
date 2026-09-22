@@ -51,8 +51,8 @@ export function Navbar() {
                 prefetch={true}
                 className={`font-sans text-sm leading-tight transition-all pb-1 ${
                   isActive
-                    ? "text-krishi-cream font-medium border-b-2 border-krishi-brand"
-                    : "text-krishi-cream/80 hover:text-krishi-brand border-b-2 border-transparent hover:border-krishi-brand/40"
+                    ? "text-krishi-cream font-medium border-b-2 border-krishi-mint"
+                    : "text-krishi-cream/80 hover:text-krishi-mint border-b-2 border-transparent hover:border-krishi-mint/40"
                 }`}
               >
                 {link.name}
@@ -97,8 +97,8 @@ export function Navbar() {
                 onClick={() => setMobileOpen(false)}
                 className={`text-sm py-2.5 px-3 rounded-lg font-medium transition-colors ${
                   pathname === link.href
-                    ? "bg-white/10 text-krishi-cream font-semibold border-l-2 border-krishi-brand"
-                    : "text-krishi-cream/80 hover:text-krishi-brand hover:bg-white/5"
+                    ? "bg-white/10 text-krishi-cream font-semibold border-l-2 border-krishi-mint"
+                    : "text-krishi-cream/80 hover:text-krishi-mint hover:bg-white/5"
                 }`}
               >
                 {link.name}

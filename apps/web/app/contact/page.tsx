@@ -16,6 +16,27 @@ export const metadata: Metadata = {
   title: "Procurement Desk",
   description:
     "Connect with our harvest dispatch desk for commercial wholesale supply agreements, seasonal allocations, and agricultural partnerships in Nepal.",
+  openGraph: {
+    title: "Procurement Desk | Green Nepal Agricultural Farm",
+    description:
+      "Connect with our harvest dispatch desk for commercial wholesale supply agreements, seasonal allocations, and agricultural partnerships in Nepal.",
+    url: "/contact",
+    images: [
+      {
+        url: "/opengraph-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Contact & Procurement - Green Nepal Agricultural Farm",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Procurement Desk | Green Nepal Agricultural Farm",
+    description:
+      "Connect with our harvest dispatch desk for commercial wholesale supply agreements, seasonal allocations, and agricultural partnerships in Nepal.",
+    images: ["/opengraph-image.jpg"],
+  },
 };
 
 export default function ContactPage() {

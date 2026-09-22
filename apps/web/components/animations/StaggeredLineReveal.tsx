@@ -55,28 +55,36 @@ export function StaggeredLineReveal({
       const targets = gsap.utils.toArray<HTMLElement>(".stagger-line-word", containerRef.current);
       if (!targets.length) return;
 
-      gsap.fromTo(
-        targets,
-        {
-          y: "115%",
-          opacity: 0,
-        },
-        {
-          y: "0%",
-          opacity: 1,
-          duration,
-          delay,
-          stagger,
-          ease,
-          scrollTrigger: scrollTrigger
-            ? {
-                trigger: containerRef.current,
-                start: triggerStart,
-                once: true,
-              }
-            : undefined,
-        }
-      );
+      const mm = gsap.matchMedia();
+
+      mm.add("(prefers-reduced-motion: reduce)", () => {
+        gsap.set(targets, { y: "0%", opacity: 1 });
+      });
+
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        gsap.fromTo(
+          targets,
+          {
+            y: "115%",
+            opacity: 0,
+          },
+          {
+            y: "0%",
+            opacity: 1,
+            duration,
+            delay,
+            stagger,
+            ease,
+            scrollTrigger: scrollTrigger
+              ? {
+                  trigger: containerRef.current,
+                  start: triggerStart,
+                  once: true,
+                }
+              : undefined,
+          }
+        );
+      });
     },
     {
       scope: containerRef,

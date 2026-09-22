@@ -29,54 +29,62 @@ export function MagneticButton({
       const el = containerRef.current;
       if (!el) return;
 
-      // Skip on touch-only devices to avoid sticky hover states
-      if (typeof window !== "undefined") {
-        const isTouch = window.matchMedia("(pointer: coarse)").matches;
-        if (isTouch) return;
-      }
+      const mm = gsap.matchMedia();
 
-      const animateMove = (relX: number, relY: number) => {
-        gsap.to(el, {
-          x: relX * strength,
-          y: relY * strength,
-          duration: 0.35,
-          ease: "power2.out",
-          overwrite: "auto",
-        });
-      };
+      mm.add("(prefers-reduced-motion: reduce)", () => {
+        gsap.set(el, { x: 0, y: 0 });
+      });
 
-      const animateLeave = () => {
-        gsap.to(el, {
-          x: 0,
-          y: 0,
-          duration: 0.65,
-          ease: "elastic.out(1, 0.35)",
-          overwrite: "auto",
-        });
-      };
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        // Skip on touch-only devices to avoid sticky hover states
+        if (typeof window !== "undefined") {
+          const isTouch = window.matchMedia("(pointer: coarse)").matches;
+          if (isTouch) return;
+        }
 
-      const safeMove = contextSafe ? contextSafe(animateMove) : animateMove;
-      const safeLeave = contextSafe ? contextSafe(animateLeave) : animateLeave;
+        const animateMove = (relX: number, relY: number) => {
+          gsap.to(el, {
+            x: relX * strength,
+            y: relY * strength,
+            duration: 0.35,
+            ease: "power2.out",
+            overwrite: "auto",
+          });
+        };
 
-      const handleMouseMove = (e: MouseEvent) => {
-        const rect = el.getBoundingClientRect();
-        const relX = e.clientX - (rect.left + rect.width / 2);
-        const relY = e.clientY - (rect.top + rect.height / 2);
-        safeMove(relX, relY);
-      };
+        const animateLeave = () => {
+          gsap.to(el, {
+            x: 0,
+            y: 0,
+            duration: 0.65,
+            ease: "elastic.out(1, 0.35)",
+            overwrite: "auto",
+          });
+        };
 
-      const handleMouseLeave = () => {
-        safeLeave();
-      };
+        const safeMove = contextSafe ? contextSafe(animateMove) : animateMove;
+        const safeLeave = contextSafe ? contextSafe(animateLeave) : animateLeave;
 
-      el.addEventListener("mousemove", handleMouseMove);
-      el.addEventListener("mouseleave", handleMouseLeave);
+        const handleMouseMove = (e: MouseEvent) => {
+          const rect = el.getBoundingClientRect();
+          const relX = e.clientX - (rect.left + rect.width / 2);
+          const relY = e.clientY - (rect.top + rect.height / 2);
+          safeMove(relX, relY);
+        };
 
-      return () => {
-        el.removeEventListener("mousemove", handleMouseMove);
-        el.removeEventListener("mouseleave", handleMouseLeave);
-        gsap.killTweensOf(el);
-      };
+        const handleMouseLeave = () => {
+          safeLeave();
+        };
+
+        el.addEventListener("mousemove", handleMouseMove);
+        el.addEventListener("mouseleave", handleMouseLeave);
+
+        return () => {
+          el.removeEventListener("mousemove", handleMouseMove);
+          el.removeEventListener("mouseleave", handleMouseLeave);
+          gsap.killTweensOf(el);
+        };
+      });
     },
     { scope: containerRef, dependencies: [strength] }
   );

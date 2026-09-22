@@ -19,13 +19,48 @@ export function Hero() {
     const mediaQuery = window.matchMedia(
       "(min-width: 768px) and (prefers-reduced-motion: no-preference)"
     );
-    setCanPlayVideo(mediaQuery.matches);
+
+    let timeoutId: ReturnType<typeof setTimeout>;
+    let idleId: number | undefined;
+
+    const startVideo = () => {
+      if (mediaQuery.matches) {
+        setCanPlayVideo(true);
+      }
+    };
+
+    const scheduleVideoLoad = () => {
+      if (!mediaQuery.matches) return;
+      if ("requestIdleCallback" in window) {
+        idleId = (window as any).requestIdleCallback(startVideo, { timeout: 2000 });
+      } else {
+        timeoutId = setTimeout(startVideo, 1200);
+      }
+    };
+
+    if (document.readyState === "complete") {
+      scheduleVideoLoad();
+    } else {
+      window.addEventListener("load", scheduleVideoLoad, { once: true });
+    }
 
     const handler = (e: MediaQueryListEvent) => {
-      setCanPlayVideo(e.matches);
+      if (e.matches) {
+        scheduleVideoLoad();
+      } else {
+        setCanPlayVideo(false);
+      }
     };
     mediaQuery.addEventListener("change", handler);
-    return () => mediaQuery.removeEventListener("change", handler);
+
+    return () => {
+      window.removeEventListener("load", scheduleVideoLoad);
+      mediaQuery.removeEventListener("change", handler);
+      if (idleId && "cancelIdleCallback" in window) {
+        (window as any).cancelIdleCallback(idleId);
+      }
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   return (
@@ -40,13 +75,14 @@ export function Hero() {
         className="absolute inset-0 h-full w-full object-cover"
       />
 
-      {/* Background Video (gated to >=768px & reduced-motion: no-preference) */}
+      {/* Background Video (deferred until after load/idle, >=768px & reduced-motion: no-preference) */}
       {canPlayVideo && (
         <video
           autoPlay
           muted
           loop
           playsInline
+          preload="none"
           className="absolute inset-0 h-full w-full object-cover"
         >
           <source src={PEXELS_ASSETS.heroVideo.videoUrl} type="video/mp4" />

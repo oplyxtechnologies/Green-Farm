@@ -17,13 +17,29 @@ const inter = Inter({
   display: "swap",
 });
 
+const getBaseUrl = () => {
+  if (process.env.NEXT_PUBLIC_WEB_URL) {
+    const url = process.env.NEXT_PUBLIC_WEB_URL;
+    return url.startsWith("http://") || url.startsWith("https://") ? url : `https://${url}`;
+  }
+  if (process.env.VERCEL_URL) {
+    const url = process.env.VERCEL_URL;
+    return url.startsWith("http://") || url.startsWith("https://") ? url : `https://${url}`;
+  }
+  return process.env.NODE_ENV === "production"
+    ? "https://greennepalkrishi.com"
+    : "http://localhost:3000";
+};
+
+const siteUrl = getBaseUrl();
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_WEB_URL || "https://greennepalkrishi.com"),
+  metadataBase: new URL(siteUrl),
   alternates: {
     canonical: "./",
   },
   title: {
-    default: "Green Nepal Agricultural Farm | Organic Agriculture",
+    default: "Green Nepal Agricultural Farm | Commercial Organic Agriculture",
     template: "%s | Green Nepal Agricultural Farm",
   },
   description:
@@ -43,36 +59,26 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "./",
-    title: "Green Nepal Agricultural Farm | Organic Agriculture",
+    url: siteUrl,
+    title: "Green Nepal Agricultural Farm",
     description:
       "Cultivating quality, sustainability, and fresh agricultural produce across Nepal.",
     siteName: "Green Nepal Agricultural Farm",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/opengraph-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Green Nepal Agricultural Farm - Commercial Organic Agriculture in Nepal",
+        alt: "Green Nepal Agricultural Farm",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Green Nepal Agricultural Farm | Organic Agriculture",
+    title: "Green Nepal Agricultural Farm | Commercial Organic Agriculture",
     description:
       "Leading organic agriculture in Nepal specializing in high-yield crops, polyhouse cultivation, and empowering local farming communities.",
-    images: ["/og-image.jpg"],
-  },
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon.svg", type: "image/svg+xml" },
-    ],
-    shortcut: "/favicon.ico",
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    ],
+    images: ["/opengraph-image.jpg"],
   },
 };
 
@@ -81,8 +87,8 @@ const organizationSchema = {
   "@type": "Organization",
   name: "Green Nepal Agricultural Farm",
   alternateName: "Green Nepal Krishi",
-  url: "https://greennepalkrishi.com",
-  logo: "https://greennepalkrishi.com/icon-color.svg",
+  url: siteUrl,
+  logo: `${siteUrl}/icon-color.svg`,
   description:
     "Leading organic agricultural enterprise in Nepal specializing in high-yield crops, polyhouse cultivation, and sustainable farming.",
   email: "wholesale@greennepalagricultural.com",

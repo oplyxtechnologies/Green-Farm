@@ -19,6 +19,27 @@ export const metadata: Metadata = {
   title: "Careers and Opportunities",
   description:
     "Join the agronomy, irrigation engineering, and farm management teams at Green Nepal Agricultural Farm across Birendranagar, Surkhet and Kathmandu.",
+  openGraph: {
+    title: "Careers and Opportunities | Green Nepal Agricultural Farm",
+    description:
+      "Join the agronomy, irrigation engineering, and farm management teams at Green Nepal Agricultural Farm across Birendranagar, Surkhet and Kathmandu.",
+    url: "/careers",
+    images: [
+      {
+        url: "/opengraph-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Careers - Green Nepal Agricultural Farm",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Careers and Opportunities | Green Nepal Agricultural Farm",
+    description:
+      "Join the agronomy, irrigation engineering, and farm management teams at Green Nepal Agricultural Farm across Birendranagar, Surkhet and Kathmandu.",
+    images: ["/opengraph-image.jpg"],
+  },
 };
 
 const openRoles = [

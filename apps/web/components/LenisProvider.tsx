@@ -7,7 +7,7 @@
 
 import { ReactNode, useEffect, useLayoutEffect } from "react";
 import { usePathname } from "next/navigation";
-import { ReactLenis, useLenis } from "@studio-freight/react-lenis";
+import { ReactLenis, useLenis } from "lenis/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 

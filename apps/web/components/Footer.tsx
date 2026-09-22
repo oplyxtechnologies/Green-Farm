@@ -32,7 +32,7 @@ export function Footer() {
                 climate-resilient farming techniques across Nepalese terroir.
               </h3>
             </div>
-            <div className="lg:col-span-5 lg:pl-8 space-y-3 text-sm text-slate-400 font-sans leading-relaxed">
+            <div className="lg:col-span-5 lg:pl-8 space-y-3 text-sm text-slate-300 font-sans leading-relaxed">
               <p>
                 From polyhouse microclimates in the Kathmandu Valley to the fertile
                 plains of Birendranagar, Surkhet, Green Nepal Agricultural Farm
@@ -55,16 +55,16 @@ export function Footer() {
 
       {/* Main Footer Links */}
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 text-xs">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 text-xs font-medium">
           {/* Col 1 */}
           <div className="space-y-3">
             <h4 className="font-heading font-semibold text-sm text-krishi-cream">
               Commercial Farmlands
             </h4>
-            <div className="space-y-1.5 text-slate-400 leading-relaxed font-sans">
-              <p className="text-slate-200 font-medium">Birendranagar Facility</p>
+            <div className="space-y-1.5 text-slate-300 leading-relaxed font-sans">
+              <p className="text-krishi-cream font-medium">Birendranagar Facility</p>
               <p>Valley Farmlands &amp; Solar-Pump Irrigation</p>
-              <p className="text-slate-200 font-medium pt-2">Kathmandu Valley Facility</p>
+              <p className="text-krishi-cream font-medium pt-2">Kathmandu Valley Facility</p>
               <p>Climate-Shielded Polyhouses</p>
             </div>
           </div>
@@ -74,7 +74,7 @@ export function Footer() {
             <h4 className="font-heading font-semibold text-sm text-krishi-cream">
               Field Navigation
             </h4>
-            <ul className="space-y-2 text-slate-400">
+            <ul className="space-y-2 text-slate-300">
               <li>
                 <Link href="/about" prefetch={true} className="hover:text-krishi-cream transition-colors">
                   Our Terroir &amp; Farming Methods
@@ -103,12 +103,12 @@ export function Footer() {
             <h4 className="font-heading font-semibold text-sm text-krishi-cream">
               Dispatches &amp; Contracts
             </h4>
-            <div className="space-y-2 text-slate-400">
+            <div className="space-y-2 text-slate-300">
               <p>
                 Wholesale Desk:{" "}
                 <a
                   href="mailto:wholesale@greennepalagricultural.com"
-                  className="text-slate-200 hover:text-krishi-mint transition-colors"
+                  className="text-krishi-cream hover:text-krishi-mint transition-colors"
                 >
                   wholesale@greennepalagricultural.com
                 </a>
@@ -123,7 +123,7 @@ export function Footer() {
             <h4 className="font-heading font-semibold text-sm text-krishi-cream">
               Commercial Governance
             </h4>
-            <ul className="space-y-2 text-slate-400">
+            <ul className="space-y-2 text-slate-300">
               <li>
                 <Link href="/privacy-policy" className="hover:text-krishi-cream transition-colors">
                   Privacy Policy &amp; Data Security
@@ -134,7 +134,7 @@ export function Footer() {
                   Commercial Terms &amp; Conditions
                 </Link>
               </li>
-              <li className="pt-2 text-[11px] text-slate-400">
+              <li className="pt-2 text-xs text-slate-300 font-medium">
                 Registered under the agricultural commercial enterprise framework of Nepal.
               </li>
             </ul>
@@ -142,7 +142,7 @@ export function Footer() {
         </div>
 
         {/* Footnote */}
-        <div className="mt-14 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-slate-400">
+        <div className="mt-14 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-300 font-medium">
           <span>© {new Date().getFullYear()} Green Nepal Agricultural Farm. All rights reserved.</span>
           <span>Organic Agricultural Enterprise · Nepal</span>
         </div>

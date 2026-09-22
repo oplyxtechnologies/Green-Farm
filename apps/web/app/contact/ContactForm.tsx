@@ -115,7 +115,7 @@ export function ContactForm() {
             placeholder="e.g. Ramesh Thapa"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full rounded-xl border border-slate-300 bg-slate-50/50 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-krishi-brand focus:outline-none focus:ring-1 focus:ring-krishi-brand font-sans transition-colors"
+            className="w-full rounded-xl border border-slate-300 bg-slate-50/50 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-500 focus:border-krishi-brand focus:outline-none focus:ring-1 focus:ring-krishi-brand font-sans transition-colors"
           />
         </div>
 
@@ -129,7 +129,7 @@ export function ContactForm() {
             placeholder="ramesh@hotelgroup.com.np"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-xl border border-slate-300 bg-slate-50/50 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-krishi-brand focus:outline-none focus:ring-1 focus:ring-krishi-brand font-sans transition-colors"
+            className="w-full rounded-xl border border-slate-300 bg-slate-50/50 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-500 focus:border-krishi-brand focus:outline-none focus:ring-1 focus:ring-krishi-brand font-sans transition-colors"
           />
         </div>
       </div>
@@ -144,7 +144,7 @@ export function ContactForm() {
             placeholder="+977 9851023456"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            className="w-full rounded-xl border border-slate-300 bg-slate-50/50 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-krishi-brand focus:outline-none focus:ring-1 focus:ring-krishi-brand font-sans transition-colors"
+            className="w-full rounded-xl border border-slate-300 bg-slate-50/50 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-500 focus:border-krishi-brand focus:outline-none focus:ring-1 focus:ring-krishi-brand font-sans transition-colors"
           />
         </div>
 
@@ -157,7 +157,7 @@ export function ContactForm() {
             placeholder="e.g. Bulk Vegetable Supply Agreement"
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
-            className="w-full rounded-xl border border-slate-300 bg-slate-50/50 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:border-krishi-brand focus:outline-none focus:ring-1 focus:ring-krishi-brand font-sans transition-colors"
+            className="w-full rounded-xl border border-slate-300 bg-slate-50/50 px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-500 focus:border-krishi-brand focus:outline-none focus:ring-1 focus:ring-krishi-brand font-sans transition-colors"
           />
         </div>
       </div>
@@ -172,7 +172,7 @@ export function ContactForm() {
           placeholder="Please describe your crop varieties, required weekly/monthly tonnage, target delivery location, or agronomic questions..."
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className="w-full rounded-xl border border-slate-300 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-krishi-brand focus:outline-none focus:ring-1 focus:ring-krishi-brand font-sans leading-relaxed transition-colors"
+          className="w-full rounded-xl border border-slate-300 bg-slate-50/50 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-500 focus:border-krishi-brand focus:outline-none focus:ring-1 focus:ring-krishi-brand font-sans leading-relaxed transition-colors"
         />
       </div>
 

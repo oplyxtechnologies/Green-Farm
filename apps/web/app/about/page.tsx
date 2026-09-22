@@ -19,6 +19,27 @@ export const metadata: Metadata = {
   title: "Terroir and Philosophy",
   description:
     "Discover Green Nepal Agricultural Farm's commitment to commercial organic agriculture, regenerative soil vitality, and empowering rural Nepal.",
+  openGraph: {
+    title: "Terroir and Philosophy | Green Nepal Agricultural Farm",
+    description:
+      "Discover Green Nepal Agricultural Farm's commitment to commercial organic agriculture, regenerative soil vitality, and empowering rural Nepal.",
+    url: "/about",
+    images: [
+      {
+        url: "/opengraph-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Terroir & Philosophy - Green Nepal Agricultural Farm",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terroir and Philosophy | Green Nepal Agricultural Farm",
+    description:
+      "Discover Green Nepal Agricultural Farm's commitment to commercial organic agriculture, regenerative soil vitality, and empowering rural Nepal.",
+    images: ["/opengraph-image.jpg"],
+  },
 };
 
 const agronomicMilestones = [

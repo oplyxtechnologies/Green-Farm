@@ -6,7 +6,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { createBrowserClient } from "@green-farm/db/client";
+import { createServerComponentClient } from "@green-farm/db/server";
 import type { Produce } from "@green-farm/db/types";
 import { ArrowRight, Calendar, MapPin, Scale, Sparkles } from "lucide-react";
 import { MagneticButton } from "../../components/MagneticButton";
@@ -24,6 +24,27 @@ export const metadata: Metadata = {
   title: "Seasonal Harvest Register",
   description:
     "Explore our botanical harvest catalog of organic crops, grains, and fruits from our Surkhet Valley fields and high-altitude Himalayan orchards.",
+  openGraph: {
+    title: "Seasonal Harvest Register | Green Nepal Agricultural Farm",
+    description:
+      "Explore our botanical harvest catalog of organic crops, grains, and fruits from our Surkhet Valley fields and high-altitude Himalayan orchards.",
+    url: "/produce",
+    images: [
+      {
+        url: "/opengraph-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Seasonal Harvest Register - Green Nepal Agricultural Farm",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Seasonal Harvest Register | Green Nepal Agricultural Farm",
+    description:
+      "Explore our botanical harvest catalog of organic crops, grains, and fruits from our Surkhet Valley fields and high-altitude Himalayan orchards.",
+    images: ["/opengraph-image.jpg"],
+  },
 };
 
 interface BotanicalDetails {
@@ -166,7 +187,7 @@ async function getProduce(): Promise<Produce[]> {
   }
 
   try {
-    const supabase = createBrowserClient();
+    const supabase = createServerComponentClient();
     const fetchPromise = supabase
       .from("produce")
       .select("*")
@@ -429,7 +450,7 @@ export default async function ProducePage() {
                   </Link>
                 </MagneticButton>
 
-                <span className="text-xs text-slate-400">
+                <span className="text-xs text-slate-600 font-medium">
                   Response within 24 hours · Dispatch office in Kathmandu
                 </span>
               </div>

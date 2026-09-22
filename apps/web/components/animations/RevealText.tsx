@@ -59,28 +59,36 @@ export function RevealText({
 
       if (!targets.length) return;
 
-      gsap.fromTo(
-        targets,
-        {
-          y: "120%",
-          opacity: 0,
-        },
-        {
-          y: "0%",
-          opacity: 1,
-          duration,
-          delay,
-          stagger: splitWords ? stagger : 0,
-          ease,
-          scrollTrigger: scrollTrigger
-            ? {
-                trigger: containerRef.current,
-                start: triggerStart,
-                once: true,
-              }
-            : undefined,
-        }
-      );
+      const mm = gsap.matchMedia();
+
+      mm.add("(prefers-reduced-motion: reduce)", () => {
+        gsap.set(targets, { y: "0%", opacity: 1 });
+      });
+
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        gsap.fromTo(
+          targets,
+          {
+            y: "120%",
+            opacity: 0,
+          },
+          {
+            y: "0%",
+            opacity: 1,
+            duration,
+            delay,
+            stagger: splitWords ? stagger : 0,
+            ease,
+            scrollTrigger: scrollTrigger
+              ? {
+                  trigger: containerRef.current,
+                  start: triggerStart,
+                  once: true,
+                }
+              : undefined,
+          }
+        );
+      });
     },
     {
       scope: containerRef,

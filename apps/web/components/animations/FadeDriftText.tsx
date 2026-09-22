@@ -52,27 +52,35 @@ export function FadeDriftText({
     () => {
       if (!containerRef.current) return;
 
-      gsap.fromTo(
-        containerRef.current,
-        {
-          opacity: 0,
-          y: yOffset,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          duration,
-          delay,
-          ease,
-          scrollTrigger: scrollTrigger
-            ? {
-                trigger: containerRef.current,
-                start: triggerStart,
-                once: true,
-              }
-            : undefined,
-        }
-      );
+      const mm = gsap.matchMedia();
+
+      mm.add("(prefers-reduced-motion: reduce)", () => {
+        gsap.set(containerRef.current, { opacity: 1, y: 0 });
+      });
+
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
+        gsap.fromTo(
+          containerRef.current,
+          {
+            opacity: 0,
+            y: yOffset,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration,
+            delay,
+            ease,
+            scrollTrigger: scrollTrigger
+              ? {
+                  trigger: containerRef.current,
+                  start: triggerStart,
+                  once: true,
+                }
+              : undefined,
+          }
+        );
+      });
     },
     {
       scope: containerRef,

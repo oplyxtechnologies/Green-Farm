@@ -6,7 +6,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { createBrowserClient } from "@green-farm/db/client";
+import { createServerComponentClient } from "@green-farm/db/server";
 import type { News } from "@green-farm/db/types";
 import { ArrowRight, Calendar, User } from "lucide-react";
 import { MagneticButton } from "../../components/MagneticButton";
@@ -25,6 +25,27 @@ export const metadata: Metadata = {
   title: "Field Chronicles",
   description:
     "First-hand chronicles of soil science, polyhouse engineering, seasonal harvest reports, and agronomic stewardship from Green Nepal Agricultural Farm.",
+  openGraph: {
+    title: "Field Chronicles | Green Nepal Agricultural Farm",
+    description:
+      "First-hand chronicles of soil science, polyhouse engineering, seasonal harvest reports, and agronomic stewardship from Green Nepal Agricultural Farm.",
+    url: "/news",
+    images: [
+      {
+        url: "/opengraph-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Field Chronicles - Green Nepal Agricultural Farm",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Field Chronicles | Green Nepal Agricultural Farm",
+    description:
+      "First-hand chronicles of soil science, polyhouse engineering, seasonal harvest reports, and agronomic stewardship from Green Nepal Agricultural Farm.",
+    images: ["/opengraph-image.jpg"],
+  },
 };
 
 const fallbackNews: News[] = [
@@ -37,9 +58,9 @@ const fallbackNews: News[] = [
     content:
       "Water stewardship in the Surkhet Valley demands more than flood irrigation. During our late autumn installations, we paired high-efficiency photovoltaic pumping with pressure-compensating inline emitters. By matching water delivery curves directly to sap-flow transpiration rates, we safeguard vital groundwater tables while ensuring stable vegetative growth through dry winter intervals.",
     cover_image: PEXELS_ASSETS.terroir.solarDrip.url,
-    author: "Rohan Adhikari · Chief Agronomist",
-    published_at: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toISOString(),
-    created_at: new Date().toISOString(),
+    author: "Agronomy Operations Desk",
+    published_at: "2026-09-18T08:00:00.000Z",
+    created_at: "2026-09-18T08:00:00.000Z",
   },
   {
     id: "2",
@@ -50,9 +71,9 @@ const fallbackNews: News[] = [
     content:
       "Healthy food begins with living soil biology. In this dispatch, our soil fertility team documents the microbial diversity counts across our earthworm vermiculture beds. By blending rice straw, mustard cake, cow dung, and wood bio-char, we produce a stable humus with 4.2% organic matter content, naturally suppressing soil-borne fungal pathogens.",
     cover_image: PEXELS_ASSETS.terroir.soilCompost.url,
-    author: "Dr. Maya Shrestha · Soil Microbiologist",
-    published_at: new Date(Date.now() - 6 * 24 * 60 * 60 * 1000).toISOString(),
-    created_at: new Date().toISOString(),
+    author: "Field Microbiology Team",
+    published_at: "2026-09-12T08:00:00.000Z",
+    created_at: "2026-09-12T08:00:00.000Z",
   },
   {
     id: "3",
@@ -63,9 +84,9 @@ const fallbackNews: News[] = [
     content:
       "Rather than relying on expensive, carbon-heavy diesel heaters, our Kathmandu Valley climate-shielded polyhouses circulate underground ambient air through sub-surface earth tubes. Even when exterior pre-dawn temperatures drop to 2°C, internal canopy air remains at a steady 12°C, protecting delicate tomato and pepper blossoms from cold shock.",
     cover_image: PEXELS_ASSETS.terroir.polyhouse.url,
-    author: "Sujan Karki · Polyhouse Systems Lead",
-    published_at: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000).toISOString(),
-    created_at: new Date().toISOString(),
+    author: "Polyhouse Engineering Desk",
+    published_at: "2026-08-28T08:00:00.000Z",
+    created_at: "2026-08-28T08:00:00.000Z",
   },
 ];
 
@@ -82,7 +103,7 @@ async function getNews(): Promise<News[]> {
   }
 
   try {
-    const supabase = createBrowserClient();
+    const supabase = createServerComponentClient();
     const fetchPromise = supabase
       .from("news")
       .select("*")
